@@ -34,6 +34,7 @@ def upload():
     if base64_file.mimetype != 'application/pdf':
         return jsonify({'error': 'Uploaded file is not a PDF'}), 400
 
+
     content_list = read_pdf(base64_file)
     chunked_data = chunk_with_metadata(content_list)
     

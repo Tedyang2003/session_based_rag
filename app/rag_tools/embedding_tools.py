@@ -57,7 +57,8 @@ class TritonEmbedder:
 
             chunk_embeddings.append({
                 'pages': pages,
-                'embeddings': chunk_embedding
+                'embeddings': chunk_embedding,
+                'chunk': content
             })
 
-        return (chunk_embeddings, len(chunk_embedding))
+        return chunk_embeddings

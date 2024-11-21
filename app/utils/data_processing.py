@@ -15,7 +15,7 @@ def pool_embeddings(token_embeddings, shape):
 
 
 def chunk_with_metadata(
-    pages: list[dict[str, str]], chunk_size: int = 300, overlap: int = 50) -> list[dict]:
+    pages: list[dict[str, str]], chunk_size: int = 200, overlap: int = 50) -> list[dict]:
     """
     Chunk text from multiple pages with metadata tracking.
 
@@ -44,7 +44,7 @@ def chunk_with_metadata(
                 current_chunk += words[:remaining_space]
 
                 words = words[remaining_space:]
-                current_pages.append(page_number)
+                current_pages.append(str(page_number))
 
             else:
                 # Save the current chunk with metadata
@@ -64,3 +64,23 @@ def chunk_with_metadata(
         })
 
     return chunks
+
+
+
+def format_embeddings(embeddings: list[dict]):
+    """
+        Format embeddings to the appropriate embeddings format accepted by the schema
+        embeddings: list of embedings objects
+    """
+
+    formatted_embeddings = []
+    for embedding in embeddings:
+
+        formatted_embeddings.append({
+            'pages': ','.join(embedding['pages']),
+            'embeddings': embedding['embeddings'],
+            'chunk': embedding['chunk']
+        })
+
+
+    return formatted_embeddings

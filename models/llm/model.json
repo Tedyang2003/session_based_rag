@@ -1,0 +1,15 @@
+{
+    "model":"/mnt/models/meta-llama-3-8b-instruct-awq/1",
+    "disable_log_requests": true,
+    "gpu_memory_utilization": 0.7,
+    "enforce_eager": true,
+    "max_model_len": 4000,
+    "kv_cache_dtype": "auto",
+    "tensor_parallel_size": 1,
+    "max_parallel_loading_workers": 1,
+    "block_size": 16,
+    "enable_prefix_caching": false,
+    "swap_space": 8,
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 4000
+}

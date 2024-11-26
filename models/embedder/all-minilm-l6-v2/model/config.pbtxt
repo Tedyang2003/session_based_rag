@@ -1,0 +1,37 @@
+name: "model"
+max_batch_size: 0
+backend: "onnxruntime"
+
+input [
+  {
+    name: "input_ids"
+    data_type: TYPE_INT64
+    dims: [ 1, -1 ]
+  },
+  {
+    name: "attention_mask"
+    data_type: TYPE_INT64
+    dims: [ 1, -1 ]
+  },
+  {
+    name: "token_type_ids"
+    data_type: TYPE_INT64
+    dims: [ -1, -1 ]
+  }
+]
+
+output [
+  {
+    # must match model actual tensor name
+    name: "last_hidden_state"
+    data_type: TYPE_FP32
+    dims: [-1, -1, 384 ]
+  }
+]
+
+instance_group [
+    {
+      count: 1
+      kind: KIND_MODEL
+    }
+]

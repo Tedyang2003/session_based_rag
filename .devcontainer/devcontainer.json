@@ -26,11 +26,7 @@
 	"forwardPorts": [5000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-<<<<<<< HEAD
-	"postCreateCommand": "pip install -r requirements.txt",
-=======
-	"postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y && pip install -r requirements.txt",
->>>>>>> 5b868df (Switch All mini lm with GTE base by allibaba)
+	"postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y && pip install -r requirements.txt"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

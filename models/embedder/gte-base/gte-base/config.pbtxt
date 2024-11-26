@@ -1,4 +1,4 @@
-name: "all-minilm-l6-v2"
+name: "gte-base"
 max_batch_size: 0 
 platform: "ensemble"
 

@@ -9,7 +9,7 @@ spec:
         - -c
         - |
           pip install --no-cache-dir transformers && \
-          tritonserver --model-repository=s3://minio-service.triton-inference-services.svc.cluster.local:9000/finalised-models/ensemble-repository --model-control-mode=poll --http-port=8080
+          tritonserver --model-repository=s3://minio-service.triton-inference-services.svc.cluster.local:9000/finalised-models/ensembles/gte-base --model-control-mode=poll --http-port=8080
       image: nvcr.io/nvidia/tritonserver:24.08-py3
       name: kserve-container
       ports:

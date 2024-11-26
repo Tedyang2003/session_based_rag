@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: triton-direct-s3-route
+spec:
+  to:
+    kind: Service
+    name: triton-direct-s3-is-predictor
+  port:
+    targetPort: 8080

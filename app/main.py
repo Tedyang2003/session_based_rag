@@ -1,5 +1,5 @@
 from flask import Flask
-from routes.rag_routes import rag_bp
+from routes.rag_routes_vlm import rag_bp
 
 
 def create_app():

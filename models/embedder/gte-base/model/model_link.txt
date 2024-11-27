@@ -1,3 +1,0 @@
-Model onnx file size was too big so here is a link instead 
-
-https://huggingface.co/thenlper/gte-base/blob/main/onnx/model.onnx

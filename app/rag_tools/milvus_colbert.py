@@ -1,4 +1,6 @@
 from pymilvus import MilvusClient, DataType
+import concurrent.futures
+import numpy as np
 
 class MilvusColbertRetriever: 
     '''
@@ -108,15 +110,83 @@ class MilvusColbertRetriever:
         docs[0] = data["filepath"]
 
         # Insert the data as multiple vectors (one for each sequence) along with the corresponding metadata.
-        self.client.insert(
-            self.collection_name,
-            [
+        list_of_vectors = []
+
+        for i in range(seq_length):
+            list_of_vectors.append(
                 {
                     "vector": colbert_vecs[i],
                     "seq_id": seq_ids[i],
                     "doc_id": doc_ids[i],
                     "doc": docs[i],
                 }
-                for i in range(seq_length)
-            ],
+            )
+
+        self.client.insert(self.collection_name, list_of_vectors)
+
+    # Vector search for top-k most similar searches
+    def search(self, data, topk):
+
+        search_params = {
+            "metric_type": "IP", 
+            "params": {}
+        }
+
+        # Returns top 50 most relevant sequences using dot product metric
+        results = self.client.search(
+            self.collection_name,
+            data,
+            limit=int(50),
+            output_fields=["vector", "seq_id", "doc_id"],
+            search_params=search_params,
         )
+
+
+        # Get the relevant document ids
+        doc_ids = set()
+
+        for r_id in range(len(results)):
+            for r in range(len(results[r_id])):
+                doc_ids.add(results[r_id][r]["entity"]["doc_id"])
+
+        scores = []
+
+        # For each page, it will extract all sequences and then stack them and get an overall score for a document  
+        def rerank_single_doc(doc_id, data, client, collection_name):
+
+            doc_colbert_vecs = client.query(
+                collection_name=collection_name,
+                filter=f"doc_id in [{doc_id}, {doc_id + 1}]",
+                output_fields=["seq_id", "vector", "doc"],
+                limit=1000,
+            )
+            doc_vecs = np.vstack(
+                [doc_colbert_vecs[i]["vector"] for i in range(len(doc_colbert_vecs))]
+            )
+            score = np.dot(data, doc_vecs.T).max(1).sum()
+            return (score, doc_id)
+
+        # Multi threading documennt reranking to identify scores for each document 
+        with concurrent.futures.ThreadPoolExecutor(max_workers=300) as executor:
+
+            futures = {}
+
+            for doc_id in doc_ids:
+                index = executor.submit(
+                    rerank_single_doc, doc_id, data, client. self.collection_name
+                )
+
+                futures[index] = doc_id
+
+            for future in concurrent.futures.as_completed(futures):
+                score, doc_id = future.result()
+                scores.append((score, doc_id))
+        
+        # Get Highest scores
+        scores.sort(key = lambda x: x[0], reverse=True)
+
+        # Return most relevant document pages
+        if len(scores) >=topk:
+            return scores[:topk]
+        else: 
+            return scores

@@ -11,17 +11,19 @@ class TritonLLM():
     def __init__(self, api_url: str, template: str):
         
         self.api_url = api_url
-        self.template = template
 
-    def generate(self, **kwargs) -> str:
+    def generate(self, query, image) -> str:
 
-        prompt_text = self.format_template(**kwargs)
-        
-        headers = {"Content-Type": "application/json"}       
+
         payload = {
-            "text_input": prompt_text,
-            "parameters": {"stream": False, "temperature": 0, "max_tokens": 1000},
-            "exclude_input_in_output": True
+            "model": "llama3.2-vision",
+            "messages": [
+                {
+                "role": "user",
+                "content": "what is in this image?",
+                "images": ["<base64-encoded image data>"]
+                }
+            ]
         }
 
         response = requests.post(self.api_url, json=payload)

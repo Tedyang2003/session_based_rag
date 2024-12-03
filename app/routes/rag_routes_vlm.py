@@ -11,6 +11,8 @@ rag_bp = Blueprint('rag', __name__)
 
 colpali = ColpaliHandler(api_url=emb_url)
 milvus = MilvusColbertRetriever(host='a', port='b')
+client = MilvusClient(uri="milvus.db")
+
 
 
 # Meant for single user query
@@ -19,10 +21,16 @@ def query():
     
     request_json = request.get_json()
     collection_name = request_json['collection_name']
-    query = request_json['query']
-    chat_history = request_json['chat_history']
+    queries = request_json['queries']
 
-    return jsonify({query: response, 'context': context}), 200
+    retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
+    query_embeddings = colpali.process_queries(queries)
+
+    for query_embedding in query_embeddings:
+        query_embedding = query_embedding.float().numpy()
+        result = retriever.search(query_embedding, topk=1)
+
+    return jsonify({'result': result}), 200
 
 
 
@@ -49,7 +57,6 @@ def upload():
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
     retriever.create_collection()
     retriever.create_index()
-
 
     # Convert pdf pages to individual images
     retriever.rasterize(pdf_path=file_path)

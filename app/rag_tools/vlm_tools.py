@@ -1,9 +1,6 @@
-from langchain.prompts import ChatPromptTemplate
 import requests
 
-
-
-class TritonLLM():
+class VlmHandler():
     '''
     Custom LLM class used to leverage LangChains functionality
 
@@ -12,16 +9,16 @@ class TritonLLM():
         
         self.api_url = api_url
 
-    def generate(self, query, image) -> str:
-
+    def generate(self, chat_history, query, image) -> str:
 
         payload = {
             "model": "llama3.2-vision",
             "messages": [
+                *chat_history,
                 {
                 "role": "user",
-                "content": "what is in this image?",
-                "images": ["<base64-encoded image data>"]
+                "content": query,
+                "images": [image]
                 }
             ]
         }
@@ -32,14 +29,8 @@ class TritonLLM():
             raise Exception(f"Error from external API: {response.text}")
 
         data = response.json()
-        text_output = data.get('text_output')
+        text_output = data.get('response')
 
         return text_output 
-        self.template = template
-
-    def format_template(self, **kwargs) -> str:
-        """Format the template by replacing placeholders with dynamic values from kwargs."""
-        prompt = ChatPromptTemplate.from_template(self.template)
-        return prompt.format(**kwargs)
 
     

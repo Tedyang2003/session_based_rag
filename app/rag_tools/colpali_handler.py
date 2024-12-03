@@ -5,6 +5,7 @@ from colpali_engine.utils.processing_utils import BaseVisualRetrieverProcessor
 from colpali_engine.utils.torch_utils import ListDataset, get_torch_device
 from torch.utils.data import DataLoader
 import torch
+from tqdm import tqdm
 from typing import List, cast
 
 class ColpaliHandler:
@@ -49,22 +50,18 @@ class ColpaliHandler:
     
 
     # Accepts a list of queries to be embedded to tensors returns embeddings
-    def process_queries(self, queries):
-        dataloader = DataLoader(
-            dataset=ListDataset[str](queries),
-            batch_size=1,
-            shuffle=False,
-            collate_fn=lambda x: self.processor.process_queries(x),
-        )
-
-        qs: List[torch.Tensor] = []
-
-        for batch_query in dataloader:
-
-            with torch.no_grad():
-                batch_query = {k: v.to(self.model.device) for k, v in batch_query.items()}
-                embeddings_query = self.model(**batch_query)
-            
-            qs.extend(list(torch.unbind(embeddings_query.to("cpu"))))
+    def process_query(self, query):
+        # Process the query using the processor (if necessary)
+        processed_query = self.processor.process_queries([query])  # wrap query in a list
         
-        return qs
+        # Convert to appropriate device
+        processed_query = {k: v.to(self.model.device) for k, v in processed_query.items()}
+        
+        # Forward pass through the model to get embeddings
+        with torch.no_grad():
+            embeddings_query = self.model(**processed_query)
+        
+        # Extract the embeddings (assuming they are in the form of a tensor)
+        q = torch.unbind(embeddings_query.to("cpu"))
+        
+        return q

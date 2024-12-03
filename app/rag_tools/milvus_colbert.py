@@ -1,4 +1,4 @@
-from pymilvus import MilvusClient, DataType
+from pymilvus import DataType
 import concurrent.futures
 import numpy as np
 
@@ -157,14 +157,15 @@ class MilvusColbertRetriever:
             doc_colbert_vecs = client.query(
                 collection_name=collection_name,
                 filter=f"doc_id in [{doc_id}, {doc_id + 1}]",
-                output_fields=["seq_id", "vector", "doc"],
+                output_fields=["seq_id", "vector", "doc", 'filepath'],
                 limit=1000,
             )
             doc_vecs = np.vstack(
                 [doc_colbert_vecs[i]["vector"] for i in range(len(doc_colbert_vecs))]
             )
             score = np.dot(data, doc_vecs.T).max(1).sum()
-            return (score, doc_id)
+            file_path = doc_colbert_vecs[0]['filepath']
+            return (score, doc_id, file_path)
 
         # Multi threading documennt reranking to identify scores for each document 
         with concurrent.futures.ThreadPoolExecutor(max_workers=300) as executor:
@@ -173,14 +174,14 @@ class MilvusColbertRetriever:
 
             for doc_id in doc_ids:
                 index = executor.submit(
-                    rerank_single_doc, doc_id, data, client. self.collection_name
+                    rerank_single_doc, doc_id, data, self.client, self.collection_name
                 )
 
                 futures[index] = doc_id
 
             for future in concurrent.futures.as_completed(futures):
-                score, doc_id = future.result()
-                scores.append((score, doc_id))
+                score, doc_id, file_path = future.result()
+                scores.append((score, doc_id, file_path))
         
         # Get Highest scores
         scores.sort(key = lambda x: x[0], reverse=True)

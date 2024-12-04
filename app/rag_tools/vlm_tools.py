@@ -5,7 +5,7 @@ class VlmHandler():
     Custom LLM class used to leverage LangChains functionality
 
     '''
-    def __init__(self, api_url: str, template: str):
+    def __init__(self, api_url: str):
         
         self.api_url = api_url
 

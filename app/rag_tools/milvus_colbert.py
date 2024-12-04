@@ -1,6 +1,8 @@
+from pdf2image import convert_from_path
 from pymilvus import DataType
 import concurrent.futures
 import numpy as np
+import os
 
 class MilvusColbertRetriever: 
     '''
@@ -24,8 +26,13 @@ class MilvusColbertRetriever:
         
         images = convert_from_path(pdf_path=pdf_path)
         
+        directory = f'document_storage/{self.collection_name}/pages'
+
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
         for i, image in enumerate(images):
-            image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+            image.save(f"document_storage/{self.collection_name}/pages/page_{i + 1}.png", "PNG")
 
 
 
@@ -123,6 +130,8 @@ class MilvusColbertRetriever:
             )
 
         self.client.insert(self.collection_name, list_of_vectors)
+        
+        return "success"
 
     # Vector search for top-k most similar searches
     def search(self, data, topk):
@@ -141,7 +150,6 @@ class MilvusColbertRetriever:
             search_params=search_params,
         )
 
-
         # Get the relevant document ids
         doc_ids = set()
 
@@ -157,15 +165,17 @@ class MilvusColbertRetriever:
             doc_colbert_vecs = client.query(
                 collection_name=collection_name,
                 filter=f"doc_id in [{doc_id}, {doc_id + 1}]",
-                output_fields=["seq_id", "vector", "doc", 'filepath'],
+                output_fields=["seq_id", "vector", "doc"],
                 limit=1000,
             )
             doc_vecs = np.vstack(
                 [doc_colbert_vecs[i]["vector"] for i in range(len(doc_colbert_vecs))]
             )
+
             score = np.dot(data, doc_vecs.T).max(1).sum()
-            file_path = doc_colbert_vecs[0]['filepath']
-            return (score, doc_id, file_path)
+            doc_page = doc_colbert_vecs[0]['doc']
+
+            return (score, doc_id, doc_page)
 
         # Multi threading documennt reranking to identify scores for each document 
         with concurrent.futures.ThreadPoolExecutor(max_workers=300) as executor:
@@ -180,8 +190,8 @@ class MilvusColbertRetriever:
                 futures[index] = doc_id
 
             for future in concurrent.futures.as_completed(futures):
-                score, doc_id, file_path = future.result()
-                scores.append((score, doc_id, file_path))
+                score, doc_id, doc_page = future.result()
+                scores.append((score, doc_id, doc_page))
         
         # Get Highest scores
         scores.sort(key = lambda x: x[0], reverse=True)

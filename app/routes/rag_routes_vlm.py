@@ -6,19 +6,35 @@ from pymilvus import MilvusClient
 from PIL import Image
 import os
 import base64
+import logging
 
+
+
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    handlers=[
+                        logging.FileHandler("app.log"),  # Log to a file
+                        logging.StreamHandler()          # Log to the console
+                    ])
+logger = logging.getLogger(__name__)
+
+logger.info("Application Initialization Started")
+logger.info(f"Using {os.getcwd()}")
 
 rag_bp = Blueprint('rag', __name__)
+
 # emb_url = "http://triton-direct-s3-route-triton-inference-services.apps.nebula.sl/v2/models/all-minilm-l6-v2/infer"
 vlm_url = "http://triton-route-triton-inference-services.apps.nebula.sl/v2/models/meta-llama-3-8b-instruct-awq/generate"
 
-colpali = ColpaliHandler(api_url=emb_url)
-milvus = MilvusColbertRetriever(host='a', port='b')
+logger.info("Initializing Colpali Engine and Downloading Model")
+colpali = ColpaliHandler('auto')
+
+logger.info("Initializing Milvus Retriever")
 client = MilvusClient(uri="milvus.db")
 vlm =  VlmHandler(api_url=vlm_url)
 
 
-
+logger.info("Server is running...")
 # Meant for single user query
 @rag_bp.route('/query', methods=['POST'])
 def query():
@@ -32,11 +48,11 @@ def query():
     # Change to Single Query Processing
     query_embedding = colpali.process_query(query)
 
-    query_embedding = query_embedding.float().numpy()
-    result = retriever.search(query_embedding, topk=1)
+    query_embedding = query_embedding[0].float().numpy()
+    result = retriever.search(query_embedding, topk=2)
 
-
-    return jsonify({'result': result}), 200
+    print(result)
+    return jsonify({'result': 'success'}), 200
 
 
 
@@ -45,19 +61,28 @@ def query():
 def upload():
 
     collection_name = request.form.get('collection_name')
-    base64_file = request.files.get('file')
+    file = request.files.get('file')
 
-    if not base64_file:
+    if not file:
         return jsonify({'error': 'No PDF file provided'}), 400
     
-    if base64_file.mimetype != 'application/pdf':
+    if file.mimetype != 'application/pdf':
         return jsonify({'error': 'Uploaded file is not a PDF'}), 400
 
-    # Write the base64 data to a PDF file
-    pdf_data = base64.b64decode(base64_file)
-    file_path = f"{collection_name}/original.pdf"
-    with open(file_path, "wb") as pdf_file:
-        pdf_file.write(pdf_data)
+    # Define the file path where you want to save the uploaded PDF
+    file_path = f"document_storage/{collection_name}"
+
+
+    # Ensure the directory exists
+    if not os.path.exists(file_path):
+        os.makedirs(file_path)
+
+    # Save the PDF file to the specified path
+    try:
+        file.save(f'{file_path}/original.pdf')
+        # return jsonify({'message': 'PDF file successfully uploaded and saved'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
     # Initialize a collection with vector index
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
@@ -65,22 +90,23 @@ def upload():
     retriever.create_index()
 
     # Convert pdf pages to individual images
-    retriever.rasterize(pdf_path=file_path)
+    retriever.rasterize(pdf_path=f'{file_path}/original.pdf')
 
-    images = [Image.open(f"./{collection_name}/pages/" + name) for name in os.listdir("./pages")]
+    images = [Image.open(f"./document_storage/{collection_name}/pages/" + name) for name in os.listdir(f"./document_storage/{collection_name}/pages")]
 
     # Convert to embeddings
     image_embeddings = colpali.process_images(images)
 
     # Insert the embeddings to Milvus
-    filepaths = ["./pages/" + name for name in os.listdir("./pages")]
+    filepaths = [f"./document_storage/{collection_name}/pages/" + name for name in os.listdir(f"./document_storage/{collection_name}/pages/")]
+
     for i in range(len(filepaths)):
         data = {
             "colbert_vecs": image_embeddings[i].float().numpy(),
             "doc_id": i,
             "filepath": filepaths[i],
         }
-        milvus.insert(data)
+        retriever.insert(data)
 
 
     return jsonify({'status': 'success'}), 200

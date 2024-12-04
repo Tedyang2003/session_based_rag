@@ -1,0 +1,1812 @@
+2024-12-04 02:17:31,892 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:17:31,893 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:17:32,046 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:25:34,097 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:25:34,110 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:25:35,339 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: ff07df816b4a45cebc88caf9ad2502e0
+2024-12-04 02:26:05,817 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:26:05,818 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:26:05,890 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:26:13,638 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:26:13,640 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:26:14,770 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: cb23905b52794d9195dd487012b58968
+2024-12-04 02:26:34,548 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:26:34,548 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:26:34,598 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:26:41,896 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:26:41,898 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:26:42,955 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 00692215285448869c5b4cf3f8ddda1b
+2024-12-04 02:26:42,957 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:26:42,972 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:26:42,972 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:27:22,953 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:27:22,953 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:27:22,998 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:27:31,002 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:27:31,004 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:27:32,183 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 31ff1c2940b345f0864653be25f6b3f4
+2024-12-04 02:27:32,191 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:27:32,206 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:27:32,206 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:29:30,575 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 70, in upload
+    pdf_data = base64.b64decode(base64_file)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/base64.py", line 83, in b64decode
+    s = _bytes_from_decode_data(s)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'FileStorage'
+2024-12-04 02:29:30,581 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 02:29:30] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 02:31:15,594 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:31:15,594 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:31:15,816 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:31:26,196 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:31:26,208 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:31:27,390 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 41e8f1b1019f4bf6a3407ca8074569bb
+2024-12-04 02:31:27,391 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:31:27,401 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:31:27,401 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:31:31,542 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 73, in upload
+    with open(file_path, "wb") as pdf_file:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'gitlabs/original.pdf'
+2024-12-04 02:31:31,547 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 02:31:31] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 02:42:34,157 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:42:34,157 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:42:34,228 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:42:44,452 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:42:44,464 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:42:45,585 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 116de53770e342418f668407f8a2c93a
+2024-12-04 02:42:45,586 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:42:45,604 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:42:45,605 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:42:51,517 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 02:42:52,035 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 02:42:52,046 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/local/python/3.12.7/lib/python3.12/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'pdfinfo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 88, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 26, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2024-12-04 02:42:52,058 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 02:42:52] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 02:45:43,319 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:45:43,319 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:45:43,419 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:45:53,997 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:45:54,007 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:45:55,078 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: bad192a0769f425a9e63eef8e3027147
+2024-12-04 02:45:55,078 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:45:55,087 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:45:55,088 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:46:09,077 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 02:46:09,590 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 02:46:09,612 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 602, in pdfinfo_from_path
+    raise ValueError
+ValueError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 88, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 26, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 611, in pdfinfo_from_path
+    raise PDFPageCountError(
+pdf2image.exceptions.PDFPageCountError: Unable to get page count.
+Syntax Warning: May not be a PDF file (continuing anyway)
+Syntax Error (3): Illegal character <75> in hex string
+Syntax Error (4): Illegal character <ef> in hex string
+Syntax Error (5): Illegal character <8d> in hex string
+Syntax Error (6): Illegal character <28> in hex string
+Syntax Error (7): Illegal character <6e> in hex string
+Syntax Error (8): Illegal character <3f> in hex string
+Syntax Error (9): Illegal character <c5> in hex string
+Syntax Error (10): Illegal character <8a> in hex string
+Syntax Error (11): Illegal character <5b> in hex string
+Syntax Error (12): Illegal character <5e> in hex string
+Syntax Error (13): Illegal character <af> in hex string
+Syntax Error (14): Illegal character <f1> in hex string
+Syntax Error (16): Illegal character <6a> in hex string
+Syntax Error (17): Illegal character <d7> in hex string
+Syntax Error (18): Illegal character <83> in hex string
+Syntax Error (19): Illegal character <79> in hex string
+Syntax Error (20): Illegal character <ca> in hex string
+Syntax Error (21): Illegal character <1d> in hex string
+Syntax Error (22): Illegal character <7b> in hex string
+Syntax Error (23): Illegal character <f2> in hex string
+Syntax Error (24): Illegal character <de> in hex string
+Syntax Error (25): Illegal character <9e> in hex string
+Syntax Error (26): Illegal character <0b> in hex string
+Syntax Error (28): Illegal character <db> in hex string
+Syntax Error (29): Illegal character <de> in hex string
+Syntax Error (31): Illegal character <da> in hex string
+Syntax Error (32): Illegal character <cb> in hex string
+Syntax Error (33): Illegal character <6b> in hex string
+Syntax Error (34): Illegal character <79> in hex string
+Syntax Error (35): Illegal character <a9> in hex string
+Syntax Error (36): Illegal character <b1> in hex string
+Syntax Error (37): Illegal character <21> in hex string
+Syntax Error (38): Illegal character <5e> in hex string
+Syntax Error (39): Illegal character <dc> in hex string
+Syntax Error (40): Illegal character <67> in hex string
+Syntax Error (41): Illegal character <6e> in hex string
+Syntax Error (42): Illegal character <08> in hex string
+Syntax Error (43): Illegal character <1d> in hex string
+Syntax Error (44): Illegal character <d3> in hex string
+Syntax Error (45): Illegal character <13> in hex string
+Syntax Error (46): Illegal character <d2> in hex string
+Syntax Error (47): Illegal character <9f> in hex string
+Syntax Error (48): Illegal character <26> in hex string
+Syntax Error (49): Illegal character <8a> in hex string
+Syntax Error (50): Illegal character <f6> in hex string
+Syntax Error (52): Illegal character <9a> in hex string
+Syntax Error (53): Illegal character <ec> in hex string
+Syntax Error (54): Illegal character <a2> in hex string
+Syntax Error (55): Illegal character <17> in hex string
+Syntax Error (56): Illegal character <ff> in hex string
+Syntax Error (57): Illegal character <83> in hex string
+Syntax Error (58): Illegal character <3a> in hex string
+Syntax Error (59): Illegal character <fe> in hex string
+Syntax Error (60): Illegal character <e1> in hex string
+Syntax Error (61): Illegal character <c6> in hex string
+Syntax Error (62): Illegal character <ac> in hex string
+Syntax Error (63): Illegal character <d7> in hex string
+Syntax Error (64): Illegal character <0f> in hex string
+Syntax Error (66): Illegal character <27> in hex string
+Syntax Error (67): Illegal character <a6> in hex string
+Syntax Error (68): Illegal character <a8> in hex string
+Syntax Error (69): Illegal character <4b> in hex string
+Syntax Error (70): Illegal character <4f> in hex string
+Syntax Error (71): Illegal character <2d> in hex string
+Syntax Error (72): Illegal character <03> in hex string
+Syntax Error (74): Illegal character <fb> in hex string
+Syntax Error (75): Illegal character <cd> in hex string
+Syntax Error (76): Illegal character <c2> in hex string
+Syntax Error (79): Illegal character <82> in hex string
+Syntax Error (80): Illegal character <79> in hex string
+Syntax Error (81): Illegal character <6b> in hex string
+Syntax Error (82): Illegal character <aa> in hex string
+Syntax Error (84): Illegal character <25> in hex string
+Syntax Error (85): Illegal character <c9> in hex string
+Syntax Error (86): Illegal character <11> in hex string
+Syntax Error (87): Illegal character <ff> in hex string
+Syntax Error (88): Illegal character <02> in hex string
+Syntax Error (89): Illegal character <6a> in hex string
+Syntax Error (90): Illegal character <6d> in hex string
+Syntax Error (91): Illegal character <c3> in hex string
+Syntax Error (92): Illegal character <10> in hex string
+Syntax Error (93): Illegal character <b2> in hex string
+Syntax Error (94): Illegal character <ce> in hex string
+Syntax Error (95): Illegal character <d8> in hex string
+Syntax Error (96): Illegal character <a3> in hex string
+Syntax Error (97): Illegal character <1d> in hex string
+Syntax Error (98): Illegal character <2d> in hex string
+Syntax Error (99): Illegal character <95> in hex string
+Syntax Error (100): Illegal character <bd> in hex string
+Syntax Error (101): Illegal character <ef> in hex string
+Syntax Error (102): Illegal character <a0> in hex string
+Syntax Error (103): Illegal character <0b> in hex string
+Syntax Error (104): Illegal character <03> in hex string
+Syntax Error (105): Illegal character <f6> in hex string
+Syntax Error (107): Illegal character <cd> in hex string
+Syntax Error (108): Illegal character <3b> in hex string
+Syntax Error (109): Illegal character <2b> in hex string
+Syntax Error (110): Illegal character <d0> in hex string
+Syntax Error (111): Illegal character <90> in hex string
+Syntax Error (112): Illegal character <eb> in hex string
+Syntax Error (113): Illegal character <dc> in hex string
+Syntax Error (114): Illegal character <52> in hex string
+Syntax Error (115): Illegal character <9a> in hex string
+Syntax Error (116): Illegal character <94> in hex string
+Syntax Error (118): Illegal character <02> in hex string
+Syntax Error (119): Illegal character <c6> in hex string
+Syntax Error (120): Illegal character <70> in hex string
+Syntax Error (121): Illegal character <29> in hex string
+Syntax Error (122): Illegal character <c9> in hex string
+Syntax Error (123): Illegal character <2d> in hex string
+Syntax Error (124): Illegal character <d1> in hex string
+Syntax Error (125): Illegal character <74> in hex string
+Syntax Error (126): Illegal character <7d> in hex string
+Syntax Error (127): Illegal character <e0> in hex string
+Syntax Error (128): Illegal character <90> in hex string
+Syntax Error (129): Illegal character <a8> in hex string
+Syntax Error (130): Illegal character <de> in hex string
+Syntax Error (131): Illegal character <7f> in hex string
+Syntax Error (133): Illegal character <e3> in hex string
+Syntax Error (134): Illegal character <be> in hex string
+Syntax Error (135): Illegal character <cd> in hex string
+Syntax Error (136): Illegal character <72> in hex string
+Syntax Error (137): Illegal character <e6> in hex string
+Syntax Error (138): Illegal character <b3> in hex string
+Syntax Error (139): Illegal character <22> in hex string
+Syntax Error (140): Illegal character <7a> in hex string
+Syntax Error (141): Illegal character <98> in hex string
+Syntax Error (143): Illegal character <0b> in hex string
+Syntax Error (144): Illegal character <ec> in hex string
+Syntax Error (145): Illegal character <cd> in hex string
+Syntax Error (146): Illegal character <2c> in hex string
+Syntax Error (147): Illegal character <bf> in hex string
+Syntax Error (148): Illegal character <a8> in hex string
+Syntax Error (149): Illegal character <b0> in hex string
+Syntax Error (150): Illegal character <91> in hex string
+Syntax Error (151): Illegal character <47> in hex string
+Syntax Error (152): Illegal character <2a> in hex string
+Syntax Error (153): Illegal character <ae> in hex string
+Syntax Error (154): Illegal character <56> in hex string
+Syntax Error (155): Illegal character <f7> in hex string
+Syntax Error (156): Illegal character <52> in hex string
+Syntax Error (157): Illegal character <cd> in hex string
+Syntax Error (158): Illegal character <a3> in hex string
+Syntax Error (159): Illegal character <f9> in hex string
+Syntax Error (161): Illegal character <a9> in hex string
+Syntax Error (162): Illegal character <b6> in hex string
+Syntax Error (163): Illegal character <ab> in hex string
+Syntax Error (164): Illegal character <a4> in hex string
+Syntax Error (165): Illegal character <5b> in hex string
+Syntax Error (166): Illegal character <b1> in hex string
+Syntax Error (167): Illegal character <ae> in hex string
+Syntax Error (169): Illegal character <58> in hex string
+Syntax Error (170): Illegal character <6a> in hex string
+Syntax Error (171): Illegal character <e7> in hex string
+Syntax Error (172): Illegal character <cb> in hex string
+Syntax Error (173): Illegal character <47> in hex string
+Syntax Error (174): Illegal character <eb> in hex string
+Syntax Error (175): Illegal character <2a> in hex string
+Syntax Error (176): Illegal character <9d> in hex string
+Syntax Error (177): Illegal character <b1> in hex string
+Syntax Error (178): Illegal character <bf> in hex string
+Syntax Error (179): Illegal character <3f> in hex string
+Syntax Error (181): Illegal character <7e> in hex string
+Syntax Error (182): Illegal character <80> in hex string
+Syntax Error (183): Illegal character <7c> in hex string
+Syntax Error (184): Illegal character <47> in hex string
+Syntax Error (185): Illegal character <d0> in hex string
+Syntax Error (186): Illegal character <74> in hex string
+Syntax Error (187): Illegal character <95> in hex string
+Syntax Error (188): Illegal character <a4> in hex string
+Syntax Error (190): Illegal character <db> in hex string
+Syntax Error (191): Illegal character <a7> in hex string
+Syntax Error (192): Illegal character <ca> in hex string
+Syntax Error (195): Illegal character <70> in hex string
+Syntax Error (196): Illegal character <af> in hex string
+Syntax Error (197): Illegal character <ae> in hex string
+Syntax Error (198): Illegal character <91> in hex string
+Syntax Error (199): Illegal character <f2> in hex string
+Syntax Error (200): Illegal character <29> in hex string
+Syntax Error (201): Illegal character <cd> in hex string
+Syntax Error (202): Illegal character <d6> in hex string
+Syntax Error (203): Illegal character <72> in hex string
+Syntax Error (204): Illegal character <ac> in hex string
+Syntax Error (205): Illegal character <19> in hex string
+Syntax Error (206): Illegal character <29> in hex string
+Syntax Error (207): Illegal character <cd> in hex string
+Syntax Error (208): Illegal character <2a> in hex string
+Syntax Error (209): Illegal character <59> in hex string
+Syntax Error (210): Illegal character <2e> in hex string
+Syntax Error (211): Illegal character <1c> in hex string
+Syntax Error (212): Illegal character <9b> in hex string
+Syntax Error (213): Illegal character <3a> in hex string
+Syntax Error (214): Illegal character <b6> in hex string
+Syntax Error (216): Illegal character <ad> in hex string
+Syntax Error (217): Illegal character <72> in hex string
+Syntax Error (218): Illegal character <b0> in hex string
+Syntax Error (220): Illegal character <b9> in hex string
+Syntax Error (222): Illegal character <ee> in hex string
+Syntax Error (223): Illegal character <90> in hex string
+Syntax Error (225): Illegal character <a7> in hex string
+Syntax Error (227): Illegal character <eb> in hex string
+Syntax Error (228): Illegal character <47> in hex string
+Syntax Error (229): Illegal character <ea> in hex string
+Syntax Error (230): Illegal character <0f> in hex string
+Syntax Error (231): Illegal character <f7> in hex string
+Syntax Error (232): Illegal character <18> in hex string
+Syntax Error (233): Illegal character <f4> in hex string
+Syntax Error (234): Illegal character <81> in hex string
+Syntax Error (235): Illegal character <fc> in hex string
+Syntax Error (236): Illegal character <b7> in hex string
+Syntax Error (237): Illegal character <5d> in hex string
+Syntax Error (238): Illegal character <b3> in hex string
+Syntax Error (239): Illegal character <ba> in hex string
+Syntax Error (240): Illegal character <fc> in hex string
+Syntax Error (241): Illegal character <1f> in hex string
+Syntax Error (242): Illegal character <d8> in hex string
+Syntax Error (243): Illegal character <e9> in hex string
+Syntax Error (244): Illegal character <88> in hex string
+Syntax Error (245): Illegal character <60> in hex string
+Syntax Error (247): Illegal character <bd> in hex string
+Syntax Error (248): Illegal character <57> in hex string
+Syntax Error (249): Illegal character <db> in hex string
+Syntax Error (250): Illegal character <fe> in hex string
+Syntax Error (251): Illegal character <6b> in hex string
+Syntax Error (252): Illegal character <fd> in hex string
+Syntax Error (254): Illegal character <84> in hex string
+Syntax Error (255): Illegal character <ee> in hex string
+Syntax Error (256): Illegal character <51> in hex string
+Syntax Error (257): Illegal character <ff> in hex string
+Syntax Error (258): Illegal character <48> in hex string
+Syntax Error (259): Illegal character <91> in hex string
+Syntax Error (260): Illegal character <f5> in hex string
+Syntax Error (261): Illegal character <ae> in hex string
+Syntax Error (262): Illegal character <40> in hex string
+Syntax Error (263): Illegal character <dc> in hex string
+Syntax Error (264): Illegal character <73> in hex string
+Syntax Error (265): Illegal character <83> in hex string
+Syntax Error (266): Illegal character <f4> in hex string
+Syntax Error (268): Illegal character <0e> in hex string
+Syntax Error (269): Illegal character <06> in hex string
+Syntax Error (270): Illegal character <c2> in hex string
+Syntax Error (272): Illegal character <bf> in hex string
+Syntax Error (273): Illegal character <1a> in hex string
+Syntax Error (274): Illegal character <fd> in hex string
+Syntax Error (275): Illegal character <2f> in hex string
+Syntax Error (276): Illegal character <1e> in hex string
+Syntax Error (277): Illegal character <3f> in hex string
+Syntax Error (278): Illegal character <72> in hex string
+Syntax Error (279): Illegal character <af> in hex string
+Syntax Error (280): Illegal character <5b> in hex string
+Syntax Error (281): Illegal character <2b> in hex string
+Syntax Error (282): Illegal character <8d> in hex string
+Syntax Error (284): Illegal character <3f> in hex string
+Syntax Error (285): Illegal character <b9> in hex string
+Syntax Error (286): Illegal character <80> in hex string
+Syntax Error (287): Illegal character <68> in hex string
+Syntax Error (288): Illegal character <fd> in hex string
+Syntax Error (289): Illegal character <29> in hex string
+Syntax Error (290): Illegal character <b4> in hex string
+Syntax Error (291): Illegal character <4a> in hex string
+Syntax Error (292): Illegal character <12> in hex string
+Syntax Error (294): Illegal character <ba> in hex string
+Syntax Error (296): Illegal character <97> in hex string
+Syntax Error (297): Illegal character <ba> in hex string
+Syntax Error (298): Illegal character <72> in hex string
+Syntax Error (299): Illegal character <7e> in hex string
+Syntax Error (300): Illegal character <d7> in hex string
+Syntax Error (301): Illegal character <07> in hex string
+Syntax Error (302): Illegal character <15> in hex string
+Syntax Error (303): Illegal character <da> in hex string
+Syntax Error (304): Illegal character <9f> in hex string
+Syntax Error (305): Illegal character <a8> in hex string
+Syntax Error (306): Illegal character <9c> in hex string
+Syntax Error (307): Illegal character <e5> in hex string
+Syntax Error (308): Illegal character <22> in hex string
+Syntax Error (309): Illegal character <59> in hex string
+Syntax Error (310): Illegal character <2a> in hex string
+Syntax Error (311): Illegal character <a9> in hex string
+Syntax Error (313): Illegal character <97> in hex string
+Syntax Error (315): Illegal character <d2> in hex string
+Syntax Error (316): Illegal character <2a> in hex string
+Syntax Error (317): Illegal character <22> in hex string
+Syntax Error (318): Illegal character <e9> in hex string
+Syntax Error (319): Illegal character <c7> in hex string
+Syntax Error (320): Illegal character <52> in hex string
+Syntax Error (321): Illegal character <54> in hex string
+Syntax Error (325): Illegal character <08> in hex string
+Syntax Error (326): Illegal character <5f> in hex string
+Syntax Error (328): Illegal character <47> in hex string
+Syntax Error (329): Illegal character <86> in hex string
+Syntax Error (330): Illegal character <91> in hex string
+Syntax Error (331): Illegal character <93> in hex string
+Syntax Error (332): Illegal character <b0> in hex string
+Syntax Error (333): Illegal character <d6> in hex string
+Syntax Error (334): Illegal character <b3> in hex string
+Syntax Error (335): Illegal character <a2> in hex string
+Syntax Error (336): Illegal character <52> in hex string
+Syntax Error (337): Illegal character <aa> in hex string
+Syntax Error (338): Illegal character <a7> in hex string
+Syntax Error (340): Illegal character <06> in hex string
+Syntax Error (341): Illegal character <71> in hex string
+Syntax Error (342): Illegal character <b7> in hex string
+Syntax Error (343): Illegal character <ff> in hex string
+Syntax Error (344): Illegal character <fc> in hex string
+Syntax Error: Unterminated hex string
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
+2024-12-04 02:46:09,620 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 02:46:09] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 02:49:08,552 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:49:08,552 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 02:49:08,553 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:49:08,626 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:49:19,562 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:49:19,565 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:49:20,757 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 35af8dfe1d3c4ad9968812a1d4c14953
+2024-12-04 02:49:20,758 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:49:20,773 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:49:20,774 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:52:17,427 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 02:52:17,427 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 02:52:17,427 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 02:52:17,498 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 02:52:28,512 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 02:52:28,516 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 02:52:29,499 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 6986db2bd2c445d9b62d55fb8f483358
+2024-12-04 02:52:29,500 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 02:52:29,514 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 02:52:29,515 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 02:52:44,111 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 02:52:44] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 04:32:38,485 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:32:38,485 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:32:38,486 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:32:38,544 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:32:49,283 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:32:49,290 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:32:50,308 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: d5d66837ae9d42549ec7122b3c7702d9
+2024-12-04 04:32:50,309 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:32:50,318 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:32:50,319 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:32:53,776 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:32:54,310 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:32:59,930 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 29, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:32:59,937 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:32:59] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:34:56,548 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:34:56,548 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:34:56,549 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:34:56,627 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:35:08,180 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:35:08,185 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:35:09,440 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: ceedf0f949bd4ef7bedf38cf736ed287
+2024-12-04 04:35:09,441 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:35:09,450 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:35:09,450 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:35:13,270 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:35:13,785 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:35:18,230 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 36, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:35:18,237 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:35:18] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:36:30,823 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:36:30,823 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:36:30,824 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:36:30,949 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:36:43,042 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:36:43,045 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:36:44,203 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 603d0db2d5ed40b08187cddb38afa569
+2024-12-04 04:36:44,204 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:36:44,217 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:36:44,218 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:36:45,970 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:36:46,483 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:36:51,115 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 36, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:36:51,122 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:36:51] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:39:14,177 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:39:14,177 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:39:14,177 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:39:14,241 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:39:25,480 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:39:25,491 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:39:26,692 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: ac6eb8160dbf4af9985918f2448e83fe
+2024-12-04 04:39:26,693 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:39:26,700 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:39:26,701 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:39:31,917 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:39:32,435 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:39:36,636 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 37, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:39:36,644 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:39:36] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:40:08,361 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:40:08,362 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:40:08,362 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:40:08,450 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:40:18,531 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:40:18,535 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:40:19,558 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: e747f7db54b84ed09e4d9c581297c776
+2024-12-04 04:40:19,558 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:40:19,572 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:40:19,574 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:40:20,572 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:40:21,087 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:40:25,805 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 38, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:40:25,818 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:40:25] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:42:14,578 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:42:14,578 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:42:14,578 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:42:14,664 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:42:22,782 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:42:22,784 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:42:24,008 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 131055e01723461682e8fd296fe40d43
+2024-12-04 04:42:24,009 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:42:24,018 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:42:24,018 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:42:29,288 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:42:29,802 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:42:34,135 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 38, in rasterize
+    image.save(f"{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/gitlabs/pages/page_1.png'
+2024-12-04 04:42:34,141 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:42:34] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:44:01,151 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:44:01,152 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:44:01,152 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:44:01,205 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:44:09,719 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:44:09,721 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:44:11,015 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: cf093a6c4705440d86856af8263cbce5
+2024-12-04 04:44:11,015 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:44:11,021 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:44:11,021 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:44:14,787 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:44:15,307 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:44:23,807 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 95, in upload
+    images = [Image.open(f"./{collection_name}/pages/" + name) for name in os.listdir("./pages")]
+                                                                           ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: './pages'
+2024-12-04 04:44:23,810 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:44:23] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:45:34,230 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:45:34,230 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:45:34,230 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:45:34,267 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:45:41,666 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:45:41,668 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:45:42,760 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: f1fa1749236b4827b6312acb7c3205aa
+2024-12-04 04:45:42,761 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:45:42,766 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:45:42,767 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:45:43,776 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:45:44,295 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:46:14,264 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:46:14] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 04:48:55,446 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 51, in query
+    query_embedding = query_embedding.float().numpy()
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'float'
+2024-12-04 04:48:55,449 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:48:55] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:49:39,583 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:49:39,584 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:49:39,584 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:49:39,633 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:49:47,622 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:49:47,624 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:49:48,667 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 832835866ba04583ab2cd894de9eb27a
+2024-12-04 04:49:48,667 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:49:48,673 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:49:48,674 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:50:00,788 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:50:00,788 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:50:00,788 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:50:00,826 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:50:08,500 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:50:08,503 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:50:09,664 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: d5c93ad2995f4422a26d57a29b860fb6
+2024-12-04 04:50:09,665 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:50:09,670 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:50:09,671 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:50:15,781 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 49, in query
+    query_embedding = retriever.process_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MilvusColbertRetriever' object has no attribute 'process_query'
+2024-12-04 04:50:15,784 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:50:15] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:50:45,004 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:50:45,005 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:50:45,005 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:50:45,067 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:50:52,987 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:50:52,989 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:50:54,242 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: d4813f8451fe478f9ce3a2a4342eafae
+2024-12-04 04:50:54,243 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:50:54,246 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:50:54,247 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:51:00,292 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 55, in query
+    return jsonify({'result': query_embedding}), 200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Tensor is not JSON serializable
+2024-12-04 04:51:00,304 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:51:00] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:51:34,689 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:51:34,689 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:51:34,689 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:51:34,730 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:51:42,467 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:51:42,469 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:51:43,545 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 7d9216ffd2af4992a40db81267c5a4ad
+2024-12-04 04:51:43,546 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:51:43,556 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:51:43,556 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:51:46,860 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 55, in query
+    return jsonify({'result': query_embedding}), 200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type ndarray is not JSON serializable
+2024-12-04 04:51:46,863 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:51:46] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:51:47,181 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 55, in query
+    return jsonify({'result': query_embedding}), 200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type ndarray is not JSON serializable
+2024-12-04 04:51:47,183 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:51:47] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:51:57,272 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:51:57,272 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:51:57,273 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:51:57,314 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:52:04,985 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:52:04,988 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:52:06,207 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 2543800975424d579af2fe7574b3c4f6
+2024-12-04 04:52:06,208 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:52:06,214 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:52:06,214 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:52:09,832 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.819515', 'RPC error': '2024-12-04 04:52:09.832784'}>
+2024-12-04 04:52:09,833 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.821024', 'RPC error': '2024-12-04 04:52:09.833087'}>
+2024-12-04 04:52:09,833 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,834 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,836 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.823857', 'RPC error': '2024-12-04 04:52:09.836003'}>
+2024-12-04 04:52:09,836 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,840 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.827032', 'RPC error': '2024-12-04 04:52:09.840072'}>
+2024-12-04 04:52:09,840 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,843 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.829807', 'RPC error': '2024-12-04 04:52:09.843788'}>
+2024-12-04 04:52:09,843 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.831456', 'RPC error': '2024-12-04 04:52:09.843982'}>
+2024-12-04 04:52:09,844 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.832099', 'RPC error': '2024-12-04 04:52:09.844457'}>
+2024-12-04 04:52:09,844 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.832450', 'RPC error': '2024-12-04 04:52:09.844614'}>
+2024-12-04 04:52:09,844 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.833503', 'RPC error': '2024-12-04 04:52:09.844833'}>
+2024-12-04 04:52:09,845 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.833295', 'RPC error': '2024-12-04 04:52:09.845003'}>
+2024-12-04 04:52:09,845 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.833937', 'RPC error': '2024-12-04 04:52:09.845185'}>
+2024-12-04 04:52:09,845 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.834580', 'RPC error': '2024-12-04 04:52:09.845253'}>
+2024-12-04 04:52:09,847 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.834962', 'RPC error': '2024-12-04 04:52:09.847185'}>
+2024-12-04 04:52:09,847 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.836184', 'RPC error': '2024-12-04 04:52:09.847834'}>
+2024-12-04 04:52:09,847 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.835341', 'RPC error': '2024-12-04 04:52:09.847944'}>
+2024-12-04 04:52:09,848 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.836606', 'RPC error': '2024-12-04 04:52:09.848128'}>
+2024-12-04 04:52:09,848 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.835781', 'RPC error': '2024-12-04 04:52:09.848226'}>
+2024-12-04 04:52:09,848 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,848 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.837308', 'RPC error': '2024-12-04 04:52:09.848666'}>
+2024-12-04 04:52:09,848 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.837696', 'RPC error': '2024-12-04 04:52:09.848802'}>
+2024-12-04 04:52:09,848 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.837894', 'RPC error': '2024-12-04 04:52:09.848946'}>
+2024-12-04 04:52:09,849 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.836941', 'RPC error': '2024-12-04 04:52:09.849043'}>
+2024-12-04 04:52:09,849 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.838585', 'RPC error': '2024-12-04 04:52:09.849209'}>
+2024-12-04 04:52:09,858 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,849 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.839091', 'RPC error': '2024-12-04 04:52:09.849475'}>
+2024-12-04 04:52:09,849 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.839351', 'RPC error': '2024-12-04 04:52:09.849717'}>
+2024-12-04 04:52:09,849 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,850 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.839855', 'RPC error': '2024-12-04 04:52:09.850071'}>
+2024-12-04 04:52:09,850 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.840439', 'RPC error': '2024-12-04 04:52:09.850210'}>
+2024-12-04 04:52:09,850 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.840779', 'RPC error': '2024-12-04 04:52:09.850405'}>
+2024-12-04 04:52:09,860 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,850 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.841261', 'RPC error': '2024-12-04 04:52:09.851032'}>
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.842051', 'RPC error': '2024-12-04 04:52:09.851128'}>
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.842476', 'RPC error': '2024-12-04 04:52:09.851267'}>
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.842701', 'RPC error': '2024-12-04 04:52:09.851449'}>
+2024-12-04 04:52:09,851 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.842888', 'RPC error': '2024-12-04 04:52:09.851806'}>
+2024-12-04 04:52:09,851 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.843164', 'RPC error': '2024-12-04 04:52:09.851887'}>
+2024-12-04 04:52:09,852 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.844105', 'RPC error': '2024-12-04 04:52:09.852130'}>
+2024-12-04 04:52:09,852 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,853 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,854 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,854 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,854 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,854 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,854 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,855 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,855 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,857 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,857 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,857 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,858 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,849 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.838271', 'RPC error': '2024-12-04 04:52:09.849283'}>
+2024-12-04 04:52:09,859 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,859 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,859 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,859 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,850 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:52:09.841690', 'RPC error': '2024-12-04 04:52:09.850697'}>
+2024-12-04 04:52:09,861 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,862 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,862 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,862 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,865 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,866 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,866 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,870 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,871 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:52:09,873 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 52, in query
+    result = retriever.search(query_embedding, topk=1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 192, in search
+    score, doc_id, file_path = future.result()
+                               ^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 166, in rerank_single_doc
+    doc_colbert_vecs = client.query(
+                       ^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 481, in query
+    raise ex from ex
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 471, in query
+    res = conn.query(
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 148, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 144, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 183, in handler
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 123, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 87, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/grpc_handler.py", line 1537, in query
+    check_status(response.status)
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/utils.py", line 63, in check_status
+    raise MilvusException(status.code, status.reason, status.error_code)
+pymilvus.exceptions.MilvusException: <MilvusException: (code=1100, message=Error output fields: invalid parameter)>
+2024-12-04 04:52:09,883 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:52:09] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:52:43,372 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:52:43,373 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:52:43,373 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:52:43,425 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:53:05,504 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:53:05,504 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:53:05,505 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:53:05,555 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:53:13,329 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:53:13,331 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:53:14,309 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: e2a8e50dcfc14d639838df0d9118d745
+2024-12-04 04:53:14,310 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:53:14,318 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:53:14,318 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:53:15,998 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:53:16,513 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:53:46,756 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:53:46] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 04:53:56,936 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.927250', 'RPC error': '2024-12-04 04:53:56.936346'}>
+2024-12-04 04:53:56,937 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,946 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.929124', 'RPC error': '2024-12-04 04:53:56.946698'}>
+2024-12-04 04:53:56,947 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,949 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.931441', 'RPC error': '2024-12-04 04:53:56.949356'}>
+2024-12-04 04:53:56,950 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,960 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.944828', 'RPC error': '2024-12-04 04:53:56.960754'}>
+2024-12-04 04:53:56,961 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.945436', 'RPC error': '2024-12-04 04:53:56.961202'}>
+2024-12-04 04:53:56,961 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.942556', 'RPC error': '2024-12-04 04:53:56.961577'}>
+2024-12-04 04:53:56,961 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.946288', 'RPC error': '2024-12-04 04:53:56.961810'}>
+2024-12-04 04:53:56,962 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,962 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.946558', 'RPC error': '2024-12-04 04:53:56.962421'}>
+2024-12-04 04:53:56,962 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.947079', 'RPC error': '2024-12-04 04:53:56.962713'}>
+2024-12-04 04:53:56,962 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.948030', 'RPC error': '2024-12-04 04:53:56.962907'}>
+2024-12-04 04:53:56,963 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.947613', 'RPC error': '2024-12-04 04:53:56.963136'}>
+2024-12-04 04:53:56,963 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,963 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.949632', 'RPC error': '2024-12-04 04:53:56.963625'}>
+2024-12-04 04:53:56,963 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.948634', 'RPC error': '2024-12-04 04:53:56.963715'}>
+2024-12-04 04:53:56,963 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.949856', 'RPC error': '2024-12-04 04:53:56.963850'}>
+2024-12-04 04:53:56,964 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.950417', 'RPC error': '2024-12-04 04:53:56.963991'}>
+2024-12-04 04:53:56,964 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,964 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.950876', 'RPC error': '2024-12-04 04:53:56.964539'}>
+2024-12-04 04:53:56,964 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.951746', 'RPC error': '2024-12-04 04:53:56.964645'}>
+2024-12-04 04:53:56,964 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.951266', 'RPC error': '2024-12-04 04:53:56.964756'}>
+2024-12-04 04:53:56,965 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.952215', 'RPC error': '2024-12-04 04:53:56.965079'}>
+2024-12-04 04:53:56,965 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,965 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.952914', 'RPC error': '2024-12-04 04:53:56.965550'}>
+2024-12-04 04:53:56,965 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.953492', 'RPC error': '2024-12-04 04:53:56.965863'}>
+2024-12-04 04:53:56,966 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.954013', 'RPC error': '2024-12-04 04:53:56.966152'}>
+2024-12-04 04:53:56,966 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,966 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.954921', 'RPC error': '2024-12-04 04:53:56.966518'}>
+2024-12-04 04:53:56,966 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.955612', 'RPC error': '2024-12-04 04:53:56.966778'}>
+2024-12-04 04:53:56,966 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,967 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.955994', 'RPC error': '2024-12-04 04:53:56.967089'}>
+2024-12-04 04:53:56,967 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.956509', 'RPC error': '2024-12-04 04:53:56.967220'}>
+2024-12-04 04:53:56,967 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.956915', 'RPC error': '2024-12-04 04:53:56.967474'}>
+2024-12-04 04:53:56,967 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,967 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.957425', 'RPC error': '2024-12-04 04:53:56.967840'}>
+2024-12-04 04:53:56,968 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.957583', 'RPC error': '2024-12-04 04:53:56.967979'}>
+2024-12-04 04:53:56,968 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,968 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.958055', 'RPC error': '2024-12-04 04:53:56.968462'}>
+2024-12-04 04:53:56,968 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.959015', 'RPC error': '2024-12-04 04:53:56.968648'}>
+2024-12-04 04:53:56,968 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.959457', 'RPC error': '2024-12-04 04:53:56.968800'}>
+2024-12-04 04:53:56,969 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.959790', 'RPC error': '2024-12-04 04:53:56.969080'}>
+2024-12-04 04:53:56,969 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.960227', 'RPC error': '2024-12-04 04:53:56.969416'}>
+2024-12-04 04:53:56,969 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.962064', 'RPC error': '2024-12-04 04:53:56.969640'}>
+2024-12-04 04:53:56,969 - pymilvus.decorators - ERROR - RPC error: [query], <MilvusException: (code=1100, message=Error output fields: invalid parameter)>, <Time:{'RPC start': '2024-12-04 04:53:56.958670', 'RPC error': '2024-12-04 04:53:56.969826'}>
+2024-12-04 04:53:56,970 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,971 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,971 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,972 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,973 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,974 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,974 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,975 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,975 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,976 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,976 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,977 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,977 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,978 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,978 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,978 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,979 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,979 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,980 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,980 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,981 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,981 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,981 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,982 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,982 - pymilvus.milvus_client.milvus_client - ERROR - Failed to query collection: gitlabs
+2024-12-04 04:53:56,990 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 52, in query
+    result = retriever.search(query_embedding, topk=1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 192, in search
+    score, doc_id, file_path = future.result()
+                               ^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/local/python/3.12.7/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 166, in rerank_single_doc
+    doc_colbert_vecs = client.query(
+                       ^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 481, in query
+    raise ex from ex
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 471, in query
+    res = conn.query(
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 148, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 144, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 183, in handler
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 123, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 87, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/grpc_handler.py", line 1537, in query
+    check_status(response.status)
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/utils.py", line 63, in check_status
+    raise MilvusException(status.code, status.reason, status.error_code)
+pymilvus.exceptions.MilvusException: <MilvusException: (code=1100, message=Error output fields: invalid parameter)>
+2024-12-04 04:53:56,998 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:53:56] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 04:54:49,854 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:54:49,855 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:54:49,855 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:54:49,908 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:54:58,212 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:54:58,214 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:54:59,500 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 3919eabf7d72462ea43594c85c73cb3b
+2024-12-04 04:54:59,501 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:54:59,509 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:54:59,509 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:55:01,662 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 04:55:02,175 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 04:55:26,867 - pymilvus.decorators - ERROR - RPC error: [insert_rows], <ParamError: (code=1, message=Field filepath don't match in entities[0])>, <Time:{'RPC start': '2024-12-04 04:55:26.845345', 'RPC error': '2024-12-04 04:55:26.867293'}>
+2024-12-04 04:55:26,868 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 109, in upload
+    retriever.insert(data)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 133, in insert
+    self.client.insert(self.collection_name, list_of_vectors)
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 225, in insert
+    raise ex from ex
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 221, in insert
+    res = conn.insert_rows(
+          ^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 148, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 144, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 183, in handler
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 123, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 87, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/grpc_handler.py", line 492, in insert_rows
+    request = self._prepare_row_insert_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/grpc_handler.py", line 518, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/prepare.py", line 515, in row_insert_param
+    return cls._parse_row_request(request, fields_info, enable_dynamic, entities)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/prepare.py", line 418, in _parse_row_request
+    _, _, auto_id_loc = traverse_rows_info(fields_info, entities)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/utils.py", line 245, in traverse_rows_info
+    raise ParamError(message=f"Field {field_name} don't match in entities[{j}]")
+pymilvus.exceptions.ParamError: <ParamError: (code=1, message=Field filepath don't match in entities[0])>
+2024-12-04 04:55:26,885 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:55:26] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 04:58:11,509 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:58:11,509 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:58:11,510 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:58:11,549 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:58:19,280 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:58:19,281 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:58:20,191 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: a9cb9d10fb56432aad88945fd7726a83
+2024-12-04 04:58:20,193 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:58:20,199 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:58:20,200 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:58:21,668 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:58:21] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 04:58:47,394 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:58:47] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 04:59:10,160 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:59:10,161 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:59:10,161 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:59:10,212 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 04:59:17,757 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 04:59:17,759 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 04:59:18,994 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 6473edb22eb84772800bcfadd915832e
+2024-12-04 04:59:18,995 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 04:59:19,000 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 04:59:19,001 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 04:59:21,680 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 04:59:21] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 04:59:52,676 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 04:59:52,677 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 04:59:52,677 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 04:59:52,731 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:00:00,465 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:00:00,467 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:00:01,700 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: fd67cabeadf343b1981b27a1c057c4d0
+2024-12-04 05:00:01,700 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:00:01,707 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:00:01,711 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:00:04,306 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:00:04,819 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:00:34,676 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:00:34] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:00:37,878 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:00:37] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:01:01,713 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:01:01,713 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:01:01,714 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:01:01,790 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:01:09,724 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:01:09,726 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:01:10,898 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 66d989172e0e442680c8d0e2fbe3930e
+2024-12-04 05:01:10,899 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:01:10,906 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:01:10,907 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:01:18,111 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:01:18,627 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:01:48,499 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:01:48] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:01:53,785 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 55, in query
+    return jsonify({'result': result}), 200
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type float32 is not JSON serializable
+2024-12-04 05:01:53,795 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:01:53] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 05:02:37,555 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:02:37,555 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:02:37,556 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:02:37,610 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:02:46,755 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:02:46,759 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:02:47,729 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: a558b971793842248eef46af37728a70
+2024-12-04 05:02:47,730 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:02:47,739 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:02:47,740 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:02:52,015 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:02:52,527 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:03:21,558 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:03:21] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:03:29,048 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:03:29] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:04:23,693 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:04:23] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:05:40,791 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:05:41,302 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:05:45,296 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:05:45] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:06:10,939 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:06:10] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:09:15,496 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:09:15,497 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:09:15,497 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:09:15,536 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:09:23,415 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:09:23,417 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:09:24,578 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 8039b84196864dd2a0cd821a90cf7719
+2024-12-04 05:09:24,579 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:09:24,587 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:09:24,587 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:09:26,081 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:09:26,597 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:09:30,887 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:09:30] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:09:36,761 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 52, in query
+    result = retriever.search(query_embedding, topk=1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 193, in search
+    score, doc_id = future.result()
+    ^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+2024-12-04 05:09:36,771 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:09:36] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-04 05:10:09,953 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:10:09,954 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:10:09,954 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:10:10,003 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:10:17,719 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:10:17,722 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:10:19,007 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 110347b8363a4d599ae2a2bb2dbc3f88
+2024-12-04 05:10:19,008 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:10:19,015 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:10:19,015 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:10:20,414 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: gitlabs
+2024-12-04 05:10:20,933 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: gitlabs
+2024-12-04 05:10:25,616 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:10:25] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:10:28,365 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:10:28] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:10:52,281 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:10:52] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:11:15,543 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:11:15] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:14:25,734 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:14:25,734 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:14:25,735 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:14:25,824 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:14:37,763 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:14:37,774 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:14:38,817 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: ba4a174347c84712b3299dee3c49fa79
+2024-12-04 05:14:38,820 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:14:38,852 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:14:38,853 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:14:49,538 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-04 05:14:50,055 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-04 05:15:14,177 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 602, in pdfinfo_from_path
+    raise ValueError
+ValueError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 27, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 611, in pdfinfo_from_path
+    raise PDFPageCountError(
+pdf2image.exceptions.PDFPageCountError: Unable to get page count.
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
+2024-12-04 05:15:14,187 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:15:14] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 05:15:36,399 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-04 05:15:36,915 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-04 05:16:26,478 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:16:26] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:17:08,304 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:17:08] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:18:10,652 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:18:10] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:18:44,410 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:18:44] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:19:18,966 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:19:18] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:19:52,333 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:19:52] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:20:54,180 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:20:54] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:21:16,457 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:21:16,458 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:21:16,458 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:21:16,521 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:21:23,975 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:21:23,975 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:21:23,975 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:21:24,027 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:21:34,528 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:21:34,541 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:21:35,516 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 0c5be631451d44e0906dccf5a86a9926
+2024-12-04 05:21:35,517 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:21:35,531 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:21:35,532 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:21:40,918 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-04 05:21:41,432 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-04 05:22:27,153 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:22:27] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:22:40,795 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:22:40] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:23:14,186 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:23:14] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:23:41,623 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:23:41] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:23:58,437 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:23:58] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:24:33,476 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:24:33,476 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:24:33,476 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:24:33,525 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:24:41,297 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:24:41,299 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:24:42,568 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: a405ab2c5cad443bbef23e3494d8ca73
+2024-12-04 05:24:42,569 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:24:42,579 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:24:42,579 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:24:48,803 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-04 05:24:49,319 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-04 05:25:36,589 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:25:36] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:25:42,914 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:25:42] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:25:59,292 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:25:59] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:26:19,716 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:26:19] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:26:51,667 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:26:51] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:27:30,559 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:27:30] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:27:50,948 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:27:50] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:28:19,129 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:28:19] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:28:53,662 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:28:53] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:29:09,067 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:29:09] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:29:28,467 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:29:28] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:29:51,475 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:29:51] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:30:16,447 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:30:16] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:30:37,772 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:30:37,773 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:30:37,773 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:30:37,821 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:30:46,125 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:30:46,128 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:30:47,391 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 5c1491d89edb44ba8554318141dc9937
+2024-12-04 05:30:47,393 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:30:47,404 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:30:47,405 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:30:52,871 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-04 05:30:53,384 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-04 05:31:39,415 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:31:39] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:32:00,646 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:32:00] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:32:27,175 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:32:27] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:32:38,870 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:32:38] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:32:56,099 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:32:56] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:33:07,313 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:33:07] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:36:52,159 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 05:36:52,672 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 05:37:03,821 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:37:03] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 05:37:49,081 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:37:49] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:38:23,571 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:38:23] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:39:01,819 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:39:01] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:41:36,495 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:41:36] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:42:23,280 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:42:23] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 05:57:20,302 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:57:20,302 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:57:20,303 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:57:20,493 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:57:30,994 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:57:31,005 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:57:32,092 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 20d984ef48844b7fba9d18a478737ec0
+2024-12-04 05:57:32,092 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:57:32,098 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:57:32,098 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:57:39,853 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 05:57:40,370 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 05:57:40,401 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 602, in pdfinfo_from_path
+    raise ValueError
+ValueError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 27, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 611, in pdfinfo_from_path
+    raise PDFPageCountError(
+pdf2image.exceptions.PDFPageCountError: Unable to get page count.
+Syntax Warning: May not be a PDF file (continuing anyway)
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
+2024-12-04 05:57:40,408 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:57:40] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 05:57:54,552 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 05:57:55,064 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 05:57:55,070 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 602, in pdfinfo_from_path
+    raise ValueError
+ValueError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=file_path)
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 27, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 611, in pdfinfo_from_path
+    raise PDFPageCountError(
+pdf2image.exceptions.PDFPageCountError: Unable to get page count.
+Syntax Warning: May not be a PDF file (continuing anyway)
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
+2024-12-04 05:57:55,073 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:57:55] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 05:58:53,323 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 05:58:53,324 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 05:58:53,324 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 05:58:53,391 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 05:59:04,186 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 05:59:04,196 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 05:59:05,477 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: cf3c4752051f4666998a7c55e22752ff
+2024-12-04 05:59:05,477 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 05:59:05,491 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 05:59:05,492 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 05:59:09,195 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 05:59:09,710 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 05:59:14,594 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 95, in upload
+    images = [Image.open(f"./document_storage/{collection_name}/pages/" + name) for name in os.listdir(f"./document_storage/{collection_name}/pages")]
+                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: './document_storage/milvus/pages'
+2024-12-04 05:59:14,605 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 05:59:14] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 06:00:15,640 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 06:00:15,641 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 06:00:15,641 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 06:00:15,736 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 06:00:27,132 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 06:00:27,150 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 06:00:28,206 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 23d20ff5017d481d909d4c197497c9a4
+2024-12-04 06:00:28,206 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 06:00:28,212 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 06:00:28,213 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 06:00:29,537 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 06:00:30,051 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 06:00:33,494 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=f'{file_path}/original.pdf')
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 35, in rasterize
+    image.save(f"document_storage/{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/PIL/Image.py", line 2563, in save
+    fp = builtins.open(filename, "w+b")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototype/app/document_storage/milvus/pages/page_1.png'
+2024-12-04 06:00:33,502 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:00:33] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 06:00:57,540 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 06:00:57,540 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 06:00:57,540 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 06:00:57,591 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 06:01:07,452 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 06:01:07,466 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 06:01:08,644 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: f76f77381e8748fa9f9b767776b83cc6
+2024-12-04 06:01:08,645 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 06:01:08,652 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 06:01:08,653 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 06:01:10,751 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 06:01:11,264 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 06:01:23,359 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:01:23] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 06:01:27,465 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:01:27] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 06:02:35,602 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 06:02:35,602 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 06:02:35,602 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 06:02:35,671 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 06:02:45,767 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 06:02:45,778 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 06:02:46,697 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: e7b2f8af9ffd403dbc47662245049f5b
+2024-12-04 06:02:46,698 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 06:02:46,738 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 06:02:46,748 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 06:03:00,740 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 06:03:01,254 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 06:03:12,448 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:03:12] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 06:03:29,214 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:03:29] "POST /rag/query HTTP/1.1" 200 -

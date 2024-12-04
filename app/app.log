@@ -1810,3 +1810,121 @@ FileNotFoundError: [Errno 2] No such file or directory: '/workspaces/rag_prototy
 2024-12-04 06:03:01,254 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
 2024-12-04 06:03:12,448 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:03:12] "POST /rag/upload HTTP/1.1" 200 -
 2024-12-04 06:03:29,214 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 06:03:29] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:12:04,010 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-04 12:12:04,011 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-04 12:12:04,011 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-04 12:12:04,247 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-04 12:12:15,525 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-04 12:12:15,528 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-04 12:12:16,820 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 6438f62019364810a2292caab88f02ad
+2024-12-04 12:12:16,821 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-04 12:12:16,830 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-04 12:12:16,830 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-04 12:14:01,568 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:14:01] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:14:34,974 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:14:34] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:15:22,757 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: milvus
+2024-12-04 12:15:23,270 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: milvus
+2024-12-04 12:16:10,741 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:16:10] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 12:17:25,729 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:17:25] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:17:56,222 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:17:56] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:23:33,250 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:23:33] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:23:51,925 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:23:51] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:24:15,621 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:24:15] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:24:46,878 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:24:46] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:31:36,909 - pymilvus.decorators - ERROR - RPC error: [has_collection], <MilvusException: (code=1100, message=Invalid collection sg-law. ,  collection name can only contain numbers, letters and underscores: invalid parameter)>, <Time:{'RPC start': '2024-12-04 12:31:36.907166', 'RPC error': '2024-12-04 12:31:36.909070'}>
+2024-12-04 12:31:36,910 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 88, in upload
+    retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 18, in __init__
+    if self.client.has_collection(collection_name=self.collection_name):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/milvus_client/milvus_client.py", line 651, in has_collection
+    return conn.has_collection(collection_name, timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 148, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 144, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 183, in handler
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 123, in handler
+    raise e from e
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/decorators.py", line 87, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pymilvus/client/grpc_handler.py", line 353, in has_collection
+    raise MilvusException(reply.status.code, reply.status.reason, reply.status.error_code)
+pymilvus.exceptions.MilvusException: <MilvusException: (code=1100, message=Invalid collection sg-law. ,  collection name can only contain numbers, letters and underscores: invalid parameter)>
+2024-12-04 12:31:36,931 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:31:36] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 12:31:49,333 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: sg_law
+2024-12-04 12:31:49,854 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: sg_law
+2024-12-04 12:32:27,500 - main - ERROR - Exception on /rag/upload [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 602, in pdfinfo_from_path
+    raise ValueError
+ValueError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 93, in upload
+    retriever.rasterize(pdf_path=f'{file_path}/original.pdf')
+  File "/workspaces/rag_prototype/app/rag_tools/milvus_colbert.py", line 27, in rasterize
+    images = convert_from_path(pdf_path=pdf_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/pdf2image/pdf2image.py", line 611, in pdfinfo_from_path
+    raise PDFPageCountError(
+pdf2image.exceptions.PDFPageCountError: Unable to get page count.
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+
+2024-12-04 12:32:27,535 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:32:27] "[35m[1mPOST /rag/upload HTTP/1.1[0m" 500 -
+2024-12-04 12:32:36,477 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: sg_law
+2024-12-04 12:32:36,990 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: sg_law
+2024-12-04 12:33:39,886 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:33:39] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-04 12:34:47,267 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:34:47] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:35:07,082 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:35:07] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:35:44,801 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:35:44] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:36:03,563 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:36:03] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:36:47,923 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:36:47] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:38:01,610 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:38:01] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:38:28,454 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:38:28] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:39:32,472 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:39:32] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:41:12,008 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:41:12] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:43:46,858 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:43:46] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:44:32,105 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:44:32] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:45:40,885 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:45:40] "POST /rag/query HTTP/1.1" 200 -
+2024-12-04 12:46:34,202 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:46:34] "POST /rag/query HTTP/1.1" 200 -

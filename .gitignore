@@ -1,2 +1,5 @@
 env
 *.onnx
+document_storage
+milvus.db
+.milvus.db.lock

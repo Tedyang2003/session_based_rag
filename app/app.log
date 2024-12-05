@@ -1928,3 +1928,340 @@ Syntax Error: Couldn't read xref table
 2024-12-04 12:44:32,105 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:44:32] "POST /rag/query HTTP/1.1" 200 -
 2024-12-04 12:45:40,885 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:45:40] "POST /rag/query HTTP/1.1" 200 -
 2024-12-04 12:46:34,202 - werkzeug - INFO - 127.0.0.1 - - [04/Dec/2024 12:46:34] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 12:40:12,570 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 12:40:12,571 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 12:40:12,571 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 12:40:15,238 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 12:40:28,400 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 12:40:28,405 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 12:40:29,376 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: f12def46e7a74d8496ba59f3a0de8988
+2024-12-05 12:40:29,377 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 12:40:29,390 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 12:40:29,391 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 12:40:55,339 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: sg_law
+2024-12-05 12:40:55,854 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: sg_law
+2024-12-05 12:41:48,501 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 12:41:48] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-05 12:42:13,981 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 12:42:13] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 12:54:28,657 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 12:54:28,657 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 12:54:28,658 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 12:54:29,187 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 12:54:41,639 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 12:54:41,645 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 12:54:42,926 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 7fac8bb4d82b4f5cb9cb30cd3eb09699
+2024-12-05 12:54:42,927 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 12:54:42,939 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 12:54:42,940 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 12:55:10,510 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 61, in query
+    response = vlm.generate(query=query, image_paths=images_in_ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/vlm_tools.py", line 31, in generate
+    raise Exception(f"Error from external API: {response.text}")
+Exception: Error from external API: {"error":"model \"llama3.2-vision\" not found, try pulling it first"}
+2024-12-05 12:55:10,520 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 12:55:10] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-05 12:55:34,400 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 12:55:34,401 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 12:55:34,401 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 12:55:34,454 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 12:55:43,277 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 12:55:43,283 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 12:55:44,489 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 3f16369f436e4baaa044183478b8165d
+2024-12-05 12:55:44,490 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 12:55:44,501 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 12:55:44,502 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 12:55:54,870 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 61, in query
+    response = vlm.generate(query=query, image_paths=images_in_ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/vlm_tools.py", line 31, in generate
+    raise Exception(f"Error from external API: {response.text}")
+Exception: Error from external API: {"error":"model \"llama3.2-vision:11b\" not found, try pulling it first"}
+2024-12-05 12:55:54,880 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 12:55:54] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-05 14:28:10,003 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:28:10,004 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:28:10,004 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:28:10,116 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:28:22,803 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:28:22,804 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:28:22,804 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:28:22,851 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:28:35,345 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:28:35,358 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:28:36,389 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: ab0b4e18d6bb42a5b8b63efa2e9d2e96
+2024-12-05 14:28:36,390 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:28:36,405 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:28:36,406 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:29:28,238 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/requests/models.py", line 963, in json
+    return complexjson.loads(self.content.decode(encoding), **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/json/decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 2 column 1 (char 144)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 61, in query
+    response = vlm.generate(query=query, image_paths=images_in_ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/vlm_tools.py", line 33, in generate
+    data = response.json()
+           ^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/requests/models.py", line 971, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Extra data: line 2 column 1 (char 144)
+2024-12-05 14:29:28,258 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:29:28] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-05 14:30:44,747 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:30:44,747 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:30:44,747 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:30:44,820 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:30:56,443 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:30:56,446 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:30:57,381 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 12464ea5fcef4e688a9cc4337db9a704
+2024-12-05 14:30:57,381 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:30:57,388 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:30:57,388 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:31:16,496 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:31:16] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:31:38,948 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:31:38,949 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:31:38,949 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:31:39,027 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:31:47,738 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:31:47,742 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:31:48,722 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 526b610c03574a4facfa8fe80faad76d
+2024-12-05 14:31:48,723 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:31:48,731 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:31:48,731 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:32:08,249 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:32:08] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:32:54,200 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:32:54,200 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:32:54,200 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:32:54,267 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:33:06,798 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:33:06,810 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:33:07,755 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 9b24d2cb84794fbebf8ed5f99c510b72
+2024-12-05 14:33:07,755 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:33:07,768 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:33:07,769 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:33:14,148 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 61, in query
+    response = vlm.generate(query=query, image_paths=images_in_ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/vlm_tools.py", line 32, in generate
+    raise Exception(f"Error from external API: {response.text}")
+Exception: Error from external API: {"error":"json: cannot unmarshal string into Go struct field ChatRequest.stream of type bool"}
+2024-12-05 14:33:14,160 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:33:14] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-05 14:33:36,341 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:33:36,342 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:33:36,342 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:33:36,384 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:33:46,073 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:33:46,075 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:33:47,026 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: e8942cd937c14a4888f37f68370eb1bf
+2024-12-05 14:33:47,027 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:33:47,033 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:33:47,033 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:35:05,175 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:35:05] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:35:17,943 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:35:17,943 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:35:17,943 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:35:17,983 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:35:25,543 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:35:25,546 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:35:26,699 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 5bd867ec0f9840169e89683b4f7793e6
+2024-12-05 14:35:26,700 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:35:26,710 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:35:26,711 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:35:54,756 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:35:54] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:37:16,135 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:37:16,136 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:37:16,136 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:37:16,186 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:37:24,042 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:37:24,044 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:37:24,945 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 5d3144d6fc9048ef9d110d8d7f2a200c
+2024-12-05 14:37:24,948 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:37:24,961 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:37:24,962 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:37:40,155 - main - ERROR - Exception on /rag/query [POST]
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.7/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/routes/rag_routes_vlm.py", line 61, in query
+    message = vlm.generate(query=query, image_paths=images_in_ref)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/rag_prototype/app/rag_tools/vlm_tools.py", line 35, in generate
+    message = data.ge('message')
+              ^^^^^^^
+AttributeError: 'dict' object has no attribute 'ge'
+2024-12-05 14:37:40,161 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:37:40] "[35m[1mPOST /rag/query HTTP/1.1[0m" 500 -
+2024-12-05 14:37:51,500 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:37:51,500 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:37:51,501 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:37:51,547 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:37:59,281 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:37:59,284 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:38:00,288 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 26f5ac85c3d2472c881033ffa6e2bcd4
+2024-12-05 14:38:00,288 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:38:00,294 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:38:00,294 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:38:20,077 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:38:20] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:39:39,183 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created collection: python
+2024-12-05 14:39:39,695 - pymilvus.milvus_client.milvus_client - DEBUG - Successfully created an index on collection: python
+2024-12-05 14:40:18,244 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:40:18] "POST /rag/upload HTTP/1.1" 200 -
+2024-12-05 14:40:37,137 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:40:37] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:41:54,045 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:41:54] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:43:15,206 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:43:15] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:45:02,123 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:45:02,123 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:45:02,124 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:45:02,178 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:45:10,190 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:45:10,192 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:45:11,225 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 903af31ad68d40439338aa314c88ac19
+2024-12-05 14:45:11,226 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:45:11,230 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:45:11,231 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:45:25,684 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:45:25] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:46:49,874 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:46:49] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:48:03,753 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:48:03,753 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:48:03,754 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:48:03,797 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:48:11,747 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:48:11,749 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:48:12,674 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: c13c3ac9bc764261a33fefde469b19d9
+2024-12-05 14:48:12,675 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:48:12,685 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:48:12,685 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:48:23,547 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:48:23] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:49:48,834 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:49:48] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:51:20,470 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:51:20] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:52:33,948 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:52:33] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:53:30,563 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:53:30,564 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:53:30,564 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:53:30,619 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:53:41,206 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:53:41,209 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:53:42,190 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: dcdab8d34c044d1c81c7cbef79bf82c4
+2024-12-05 14:53:42,191 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:53:42,198 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:53:42,198 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:53:52,100 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:53:52] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:54:43,735 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:54:43,735 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:54:43,735 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:54:43,780 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:54:51,449 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:54:51,451 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:54:52,366 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 561bb7224e7745c595285126721a7446
+2024-12-05 14:54:52,367 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:54:52,373 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:54:52,373 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:55:11,973 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:55:11] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:56:27,397 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:56:27] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:56:58,974 - routes.rag_routes_vlm - INFO - Application Initialization Started
+2024-12-05 14:56:58,974 - routes.rag_routes_vlm - INFO - Using /workspaces/rag_prototype/app
+2024-12-05 14:56:58,974 - routes.rag_routes_vlm - INFO - Initializing Colpali Engine and Downloading Model
+2024-12-05 14:56:59,170 - colpali_engine.utils.torch_utils - INFO - Using device: cuda:0
+2024-12-05 14:57:10,164 - routes.rag_routes_vlm - INFO - Initializing Milvus Retriever
+2024-12-05 14:57:10,175 - pymilvus.orm.connections - INFO - Pass in the local path milvus.db, and run it using milvus-lite
+2024-12-05 14:57:11,260 - pymilvus.milvus_client.milvus_client - DEBUG - Created new connection using: 55bb4c1d69ea4f2ba5b27d0a4ecb8a50
+2024-12-05 14:57:11,260 - routes.rag_routes_vlm - INFO - Server is running...
+2024-12-05 14:57:11,270 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-05 14:57:11,270 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-12-05 14:57:20,611 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:57:20] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 14:58:55,694 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 14:58:55] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:00:00,070 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:00:00] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:01:22,717 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:01:22] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:02:12,918 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:02:12] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:02:39,458 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:02:39] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:03:36,873 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:03:36] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:03:59,092 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:03:59] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:04:28,086 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:04:28] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:05:40,914 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:05:40] "POST /rag/query HTTP/1.1" 200 -
+2024-12-05 15:06:29,520 - werkzeug - INFO - 127.0.0.1 - - [05/Dec/2024 15:06:29] "POST /rag/query HTTP/1.1" 200 -

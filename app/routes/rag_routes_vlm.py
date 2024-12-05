@@ -5,7 +5,6 @@ from rag_tools.vlm_tools import VlmHandler
 from pymilvus import MilvusClient
 from PIL import Image
 import os
-import base64
 import logging
 
 
@@ -23,8 +22,7 @@ logger.info(f"Using {os.getcwd()}")
 
 rag_bp = Blueprint('rag', __name__)
 
-# emb_url = "http://triton-direct-s3-route-triton-inference-services.apps.nebula.sl/v2/models/all-minilm-l6-v2/infer"
-vlm_url = "http://triton-route-triton-inference-services.apps.nebula.sl/v2/models/meta-llama-3-8b-instruct-awq/generate"
+vlm_url = "http://ollama-route-ollama-daryl.apps.nebula.sl/api/chat"
 
 logger.info("Initializing Colpali Engine and Downloading Model")
 colpali = ColpaliHandler('auto')
@@ -35,6 +33,11 @@ vlm =  VlmHandler(api_url=vlm_url)
 
 
 logger.info("Server is running...")
+
+# Move this else where
+
+
+
 # Meant for single user query
 @rag_bp.route('/query', methods=['POST'])
 def query():
@@ -48,11 +51,17 @@ def query():
     # Change to Single Query Processing
     query_embedding = colpali.process_query(query)
 
+    # Query Search
     query_embedding = query_embedding[0].float().numpy()
-    result = retriever.search(query_embedding, topk=2)
+    results = retriever.search(query_embedding, topk=1)
+    print(results)
+    
+    # Request VLM to answer
+    images_in_ref = [result[2] for result in results]
+    message = vlm.generate(query=query, image_paths=images_in_ref)
+    
 
-    print(result)
-    return jsonify({'result': 'success'}), 200
+    return jsonify(message), 200
 
 
 

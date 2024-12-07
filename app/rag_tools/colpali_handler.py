@@ -6,16 +6,17 @@ import torch
 from tqdm import tqdm
 from typing import List, cast
 
+
+# Colpali Handler for Colpali Model Initialization and Processing
 class ColpaliHandler:
     '''
     Custom Embedder class meant for managing our colpali functions
 
     '''
-
-    def __init__(self, device_name): 
+    def __init__(self, device_name, model_path): 
 
         self.device = get_torch_device(device_name)
-        self.model_name = "vidore/colpali-v1.2"
+        self.model_name = model_path
 
         self.model = ColPali.from_pretrained(
             self.model_name,
@@ -27,7 +28,7 @@ class ColpaliHandler:
 
 
 
-    # Accepts a list of images (rasterized Pdf pages) returns embeddings
+    # Accepts a list of images (rasterized Pdf pages) returns embeddings for RAG
     def process_images(self, images):
         dataloader = DataLoader(
             dataset=ListDataset[str](images),

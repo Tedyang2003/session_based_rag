@@ -1,15 +1,17 @@
 import requests
 import base64
 
+# VLLM Hand
 class VlmHandler():
     '''
-    Custom LLM class used to leverage LangChains functionality
+    Custom VLM Handler to send data to vlm for inference
 
     '''
     def __init__(self, api_url: str):
         
         self.api_url = api_url
 
+    # Generate Data from Model API using base64 image and user query
     def generate(self, query, image_paths) -> str:
 
         base64_images = list(map(self.image_base64, image_paths))

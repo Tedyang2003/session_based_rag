@@ -1,0 +1,7 @@
+.devcontainer
+env
+manifests
+models
+.env
+dockerfile
+.gitignore

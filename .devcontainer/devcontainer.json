@@ -18,10 +18,10 @@
 			"version": "3.12"
 		}
 	},
-	"runArgs": [
-		"--gpus",
-		"all"
-	],
+	// "runArgs": [
+	// 	"--gpus",
+	// 	"all"
+	// ],
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -29,7 +29,7 @@
 	"forwardPorts": [5000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install poppler-utils -y && pip install -r requirements.txt",
+	"postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install poppler-utils -y && pip install -r requirements.txt"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

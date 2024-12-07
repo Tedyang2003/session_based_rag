@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-backend
+  labels:
+    app: rag-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-backend
+  template:
+    metadata:
+      labels:
+        app: rag-backend
+    spec:
+      containers:
+      - name: rag-backend-app
+        image: my-app-image:latest
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: rag-data
+          mountPath: /data # Mount path inside the container
+      volumes:
+      - name: rag-data 
+        persistentVolumeClaim:
+          claimName: rag-pvc

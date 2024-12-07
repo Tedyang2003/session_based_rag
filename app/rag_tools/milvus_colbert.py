@@ -4,6 +4,7 @@ import concurrent.futures
 import numpy as np
 import os
 
+# Milvus Retriever specialised for Colpali data storage and retrieval
 class MilvusColbertRetriever: 
     '''
     Custom Milvus DB Class for interactions to DB 
@@ -60,7 +61,7 @@ class MilvusColbertRetriever:
         )
 
 
-    # Creates an index to allow ranking and searching of vectors
+    # Creates index to allow ranking and searching of vectors
     def create_index(self):
         
         # Release collection before dropping to ensure consistency
@@ -88,9 +89,8 @@ class MilvusColbertRetriever:
         )
 
 
-
+    # Create a scalar index for the "doc_id" field to enable fast lookups by document ID.
     def create_scalar_index(self):
-        # Create a scalar index for the "doc_id" field to enable fast lookups by document ID.
         self.client.release_collection(collection_name=self.collection_name)
 
         index_params = self.client.prepare_index_params()
@@ -105,7 +105,7 @@ class MilvusColbertRetriever:
         )
 
 
-    #Insert new vector data into the collection
+    #Insert new vector data into the collection for retrieval during search
     def insert(self, data):
 
         # Insert ColBERT embeddings and metadata for a document into the collection.
@@ -133,7 +133,9 @@ class MilvusColbertRetriever:
         
         return "success"
 
-    # Vector search for top-k most similar searches
+
+
+    # Vector search for top-k most similar searches releated to data vector
     def search(self, data, topk):
 
         search_params = {
@@ -196,7 +198,7 @@ class MilvusColbertRetriever:
         # Get Highest scores
         scores.sort(key = lambda x: x[0], reverse=True)
 
-        # Return most relevant document pages
+        # Return most relevant document pages 
         if len(scores) >=topk:
             return scores[:topk]
         else: 

@@ -1,0 +1,10 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: rag-backend-route
+spec:
+  to:
+    kind: Service
+    name: rag-backend-service
+  port:
+    targetPort: 5000  # The port your backend service listens on

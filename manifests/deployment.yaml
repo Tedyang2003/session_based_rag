@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-backend
+  labels:
+    app: rag-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-backend
+  template:
+    metadata:
+      labels:
+        app: rag-backend
+    spec:
+      containers:
+      - name: rag-backend-app
+        image: awsy2003tyyt/rag-colpali-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+          - name: VLM_URL
+            value: http://ollama-route-ollama-daryl.apps.nebula.sl/api/chat
+          - name: DEVICE_NAME
+            value: auto
+          - name: MODEL_PATH
+            value: vidore/colpali-v1.2
+          - name: DOCUMENT_STORAGE_PREFIX
+            value: /data/storage
+          - name: MILVUS_DB
+            value: milvus.db
+          - name: TOPK
+            value: "1"
+          - name: SUPPORTED_EXTENSIONS
+            value: .pdf
+          - name: APP_LOG
+            value: /data
+          - name: HF_HOME
+            value: /data/.cache/huggingface
+          - name: HF_HUB_DOWNLOAD_TIMEOUT
+            value: '600'
+        resources:
+          requests:
+            memory: "5Gi"
+            cpu: "1"
+            nvidia.com/gpu: 1  # Request 1 GPU
+          limits:
+            memory: "10Gi"
+            cpu: "2"
+            nvidia.com/gpu: 1  # Limit to 1 GPU
+        volumeMounts:
+        - name: rag-data
+          mountPath: /data # Mount path inside the container
+      volumes:
+      - name: rag-data 
+        persistentVolumeClaim:
+          claimName: rag-pvc

@@ -3,9 +3,5 @@ env
 document_storage
 milvus.db
 .milvus.db.lock
-.env
 storage
-dockerfile
-.dockerignore
 app.log
-manifests

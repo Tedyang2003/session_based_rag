@@ -7,6 +7,8 @@ from PIL import Image
 import os
 import logging
 import base64
+from dotenv import load_dotenv
+
 
 
 # Initialize Logger
@@ -21,30 +23,43 @@ logger = logging.getLogger(__name__)
 logger.info("Application Initialization Started")
 logger.info(f"Using {os.getcwd()}")
 
+# Load environment variables from .env file
+load_dotenv()
 
-# ENV variables
-vlm_url = "http://ollama-route-ollama-daryl.apps.nebula.sl/api/chat"
-device_name = "auto"
-model_path = "vidore/colpali-v1.2"
-
-document_storage_prefix = "/workspaces/rag_prototype/storage"
-milvus_uri = f"{document_storage_prefix}/milvus.db"
-
-topk= 1
 supported_extensions = {'.pdf'}
 
 
+# ENV variables
+VLM_URL = os.getenv('VLM_URL')
+DEVICE_NAME = os.getenv('DEVICE_NAME')
+MODEL_PATH = os.getenv('MODEL_PATH')
+DOCUMENT_STORAGE_PREFIX = os.getenv('DOCUMENT_STORAGE_PREFIX')
+MILVUS_DB = os.getenv('MILVUS_DB')
+TOPK = int(os.getenv('TOPK'))
+SUPPORTED_EXTENSIONS = os.getenv('SUPPORTED_EXTENSIONS').split(',')
+
+logging.info(f"VLM_URL: {VLM_URL}")
+logging.info(f"DEVICE_NAME: {DEVICE_NAME}")
+logging.info(f"MODEL_PATH: {MODEL_PATH}")
+logging.info(f"DOCUMENT_STORAGE_PREFIX: {DOCUMENT_STORAGE_PREFIX}")
+logging.info(f"MILVUS_DB: {MILVUS_DB}")
+logging.info(f"TOPK: {TOPK}")
+logging.info(f"SUPPORTED_EXTENSIONS: {SUPPORTED_EXTENSIONS}")
+
+
 # Ensure the directory exists and save the PDF file to the specified path for document use later
-if not os.path.exists(document_storage_prefix):
-    os.makedirs(document_storage_prefix)
+if not os.path.exists(DOCUMENT_STORAGE_PREFIX):
+    os.makedirs(DOCUMENT_STORAGE_PREFIX)
 
 # Intialize Components
 logger.info("Initializing Colpali Engine and Downloading Model")
-colpali = ColpaliHandler(device_name=device_name, model_path=model_path)
+colpali = ColpaliHandler(device_name=DEVICE_NAME, model_path=MODEL_PATH)
 
 logger.info("Initializing Milvus Retriever")
-client = MilvusClient(milvus_uri)
-vlm =  VlmHandler(api_url=vlm_url)
+
+# Change to stand alone later on
+client = MilvusClient(f'{DOCUMENT_STORAGE_PREFIX}/{MILVUS_DB}')
+vlm =  VlmHandler(api_url=VLM_URL)
 
 logger.info("Initializing RAG Routes")
 rag_bp = Blueprint('rag', __name__)
@@ -73,7 +88,7 @@ def query():
     # Initalize Colbert Retriever for data base similarity search
     logger.info(f"Searching {collection_name} for document page")
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
-    results = retriever.search(query_embedding, topk=topk)
+    results = retriever.search(query_embedding, topk=TOPK)
 
     
     # Request VLM to answer and attatch recommended pages to reply 
@@ -113,7 +128,7 @@ def upload():
         _, file_label, file_extention = retriever.get_file_parts(file_name)
 
         # Define the file path where you want to save the uploaded PDF
-        directory = f"{document_storage_prefix}/{collection_name}/{file_label}"
+        directory = f"{DOCUMENT_STORAGE_PREFIX}/{collection_name}/{file_label}"
 
         # Ensure the directory exists and save the PDF file to the specified path for document use later
         if not os.path.exists(directory):
@@ -122,7 +137,7 @@ def upload():
 
         logger.info(f"Processing and Verifying {file_name} for {collection_name}")
     
-        if not (file_extention in supported_extensions):
+        if not (file_extention in SUPPORTED_EXTENSIONS):
             return jsonify({'error': f'Error Processing {file_name} as its extension is not supported'}), 400
 
         logger.info(f"Saving file for {collection_name}")

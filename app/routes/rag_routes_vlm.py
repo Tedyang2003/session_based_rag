@@ -6,6 +6,7 @@ from pymilvus import MilvusClient
 from PIL import Image
 import os
 import logging
+import base64
 
 
 # Initialize Logger
@@ -25,17 +26,24 @@ logger.info(f"Using {os.getcwd()}")
 vlm_url = "http://ollama-route-ollama-daryl.apps.nebula.sl/api/chat"
 device_name = "auto"
 model_path = "vidore/colpali-v1.2"
-milvus_uri = "/data/document_storage/milvus.db"
-document_storage_prefix = "/data/document_storage"
-topk= 1
 
+document_storage_prefix = "/workspaces/rag_prototype/storage"
+milvus_uri = f"{document_storage_prefix}/milvus.db"
+
+topk= 1
+supported_extensions = {'.pdf'}
+
+
+# Ensure the directory exists and save the PDF file to the specified path for document use later
+if not os.path.exists(document_storage_prefix):
+    os.makedirs(document_storage_prefix)
 
 # Intialize Components
 logger.info("Initializing Colpali Engine and Downloading Model")
 colpali = ColpaliHandler(device_name=device_name, model_path=model_path)
 
 logger.info("Initializing Milvus Retriever")
-client = MilvusClient(uri=milvus_uri)
+client = MilvusClient(milvus_uri)
 vlm =  VlmHandler(api_url=vlm_url)
 
 logger.info("Initializing RAG Routes")
@@ -69,7 +77,7 @@ def query():
 
     
     # Request VLM to answer and attatch recommended pages to reply 
-    logger.info(f"VLM is Reading for {collection_name}")
+    logger.info(f"VLM is reading  {collection_name}")
     images_in_ref = [result[2] for result in results]
     message = vlm.generate(query=query, image_paths=images_in_ref)
     message['recommended_pages'] = images_in_ref
@@ -85,59 +93,74 @@ def query():
 def upload():
 
     # Retrive pdf document and collection name
-    collection_name = request.form.get('collection_name')
-    file = request.files.get('file')
-    logger.info(f"Processing and Verifyingfile for {collection_name}")
-
-    if not file:
-        return jsonify({'error': 'No PDF file provided'}), 400
+    request_json = request.get_json()
+    collection_name = request_json['collection_name']
+    file_list = request_json['files']
     
-    if file.mimetype != 'application/pdf':
-        return jsonify({'error': 'Uploaded file is not a PDF'}), 400
-
-
-    # Define the file path where you want to save the uploaded PDF
-    file_path = f"{document_storage_prefix}/{collection_name}"
-
-    # Ensure the directory exists and save the PDF file to the specified path for document use later
-    logger.info(f"Saving file for {collection_name}")
-    if not os.path.exists(file_path):
-        os.makedirs(file_path)
-
-    try:
-        file.save(f'{file_path}/original.pdf')
-
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
-
+    if not file_list:
+        return jsonify({'error': 'No file provided'}), 400
 
     # Initialize a collection with vector index using Colbert Retriever for DB search later on
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
     retriever.create_collection()
     retriever.create_index()
 
+    # Save each file as their original
+    for file in file_list:
+        base64_data = file['bytes']
+        file_name = file['name']
 
-    # Convert pdf pages to individual images for Colpali
-    logger.info(f"Rasterizing document for {collection_name}")
-    retriever.rasterize(pdf_path=f'{file_path}/original.pdf')
+        _, file_label, file_extention = retriever.get_file_parts(file_name)
+
+        # Define the file path where you want to save the uploaded PDF
+        directory = f"{document_storage_prefix}/{collection_name}/{file_label}"
+
+        # Ensure the directory exists and save the PDF file to the specified path for document use later
+        if not os.path.exists(directory):
+            os.makedirs(directory)
 
 
-    # Convert to embeddings for vector store
-    logger.info(f"Generating Embeddings for {collection_name}")
-    images = [Image.open(f"{file_path}/pages/" + name) for name in os.listdir(f"{file_path}/pages")]
-    image_embeddings = colpali.process_images(images)
+        logger.info(f"Processing and Verifying {file_name} for {collection_name}")
+    
+        if not (file_extention in supported_extensions):
+            return jsonify({'error': f'Error Processing {file_name} as its extension is not supported'}), 400
 
-    # Insert the embeddings to Milvus with meta data 
-    logger.info(f"Storing embeddings to {collection_name}")
-    filepaths = [f"{file_path}/pages/" + name for name in os.listdir(f"{file_path}/pages/")]
+        logger.info(f"Saving file for {collection_name}")
 
-    for i in range(len(filepaths)):
-        data = {
-            "colbert_vecs": image_embeddings[i].float().numpy(),
-            "doc_id": i,
-            "filepath": filepaths[i],
-        }
-        retriever.insert(data)
+        try:
+
+            file_data = base64.b64decode(base64_data)    
+
+            # Save the decoded data to a file
+            with open(f'{directory}/{file_name}', 'wb') as file:
+                file.write(file_data)
+
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+
+        # Convert pdf pages to individual images for Colpali
+        logger.info(f"Rasterizing document for {collection_name}")
+        retriever.rasterize(path=f'{directory}/{file_name}')
+
+
+        # Convert to embeddings for vector store
+        logger.info(f"Generating Embeddings for {collection_name}")
+        images = [Image.open(f"{directory}/pages/" + name) for name in os.listdir(f"{directory}/pages")]
+        image_embeddings = colpali.process_images(images)
+
+
+        # Insert the embeddings to Milvus with meta data 
+        logger.info(f"Storing embeddings to {collection_name}")
+        filepaths = [f"{directory}/pages/" + name for name in os.listdir(f"{directory}/pages/")]
+
+        for i in range(len(filepaths)):
+            data = {
+                "colbert_vecs": image_embeddings[i].float().numpy(),
+                "doc_id": i,
+                "filepath": filepaths[i],
+            }
+            retriever.insert(data)
 
 
     return jsonify({'status': 'success'}), 200

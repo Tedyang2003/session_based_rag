@@ -3,6 +3,7 @@ from pymilvus import DataType
 import concurrent.futures
 import numpy as np
 import os
+from flask import jsonify
 
 # Milvus Retriever specialised for Colpali data storage and retrieval
 class MilvusColbertRetriever: 
@@ -22,19 +23,37 @@ class MilvusColbertRetriever:
         self.dim = dim
 
     
-    # Convert PDF Pages to Images for Colpali Model
-    def rasterize(self, pdf_path):
+    # Convert Pages to Images for Colpali Model based on file type
+    def rasterize(self, path):
         
-        images = convert_from_path(pdf_path=pdf_path)
-        
-        directory = f'document_storage/{self.collection_name}/pages'
+        file_directory, _, file_extention = self.get_file_parts(path)
 
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        if file_extention == '.pdf':
+            images = convert_from_path(pdf_path=path)
+            
+            page_directory = f'{file_directory}/pages'
 
-        for i, image in enumerate(images):
-            image.save(f"document_storage/{self.collection_name}/pages/page_{i + 1}.png", "PNG")
+            if not os.path.exists(page_directory):
+                os.makedirs(page_directory)
 
+            for i, image in enumerate(images):
+                image.save(f"{page_directory}/page_{i + 1}.png", "PNG")
+
+        else: 
+            return jsonify({'error': 'This file type is not supported'}), 400
+
+    
+    # Get file parts from path
+    def get_file_parts(self, file_path):
+        """
+        Get the directory, file name without extension, and file extension separately.
+        Convert the extension to lowercase for case-insensitive comparison.
+        """
+        directory = os.path.dirname(file_path)
+        file_name_with_ext = os.path.basename(file_path)
+        file_name, ext = os.path.splitext(file_name_with_ext)
+
+        return directory, file_name, ext.lower()
 
 
     # Create a new collection in Milvus for storing embeddings using fixed schema

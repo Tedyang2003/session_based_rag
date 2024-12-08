@@ -10,23 +10,8 @@ import base64
 from dotenv import load_dotenv
 
 
-
-# Initialize Logger
-logging.basicConfig(level=logging.INFO, 
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    handlers=[
-                        logging.FileHandler("app.log"),  # Log to a file
-                        logging.StreamHandler()          # Log to the console
-                    ])
-logger = logging.getLogger(__name__)
-
-logger.info("Application Initialization Started")
-logger.info(f"Using {os.getcwd()}")
-
 # Load environment variables from .env file
 load_dotenv()
-
-supported_extensions = {'.pdf'}
 
 
 # ENV variables
@@ -37,6 +22,7 @@ DOCUMENT_STORAGE_PREFIX = os.getenv('DOCUMENT_STORAGE_PREFIX')
 MILVUS_DB = os.getenv('MILVUS_DB')
 TOPK = int(os.getenv('TOPK'))
 SUPPORTED_EXTENSIONS = os.getenv('SUPPORTED_EXTENSIONS').split(',')
+APP_LOG = os.getenv('APP_LOG')
 
 logging.info(f"VLM_URL: {VLM_URL}")
 logging.info(f"DEVICE_NAME: {DEVICE_NAME}")
@@ -45,6 +31,19 @@ logging.info(f"DOCUMENT_STORAGE_PREFIX: {DOCUMENT_STORAGE_PREFIX}")
 logging.info(f"MILVUS_DB: {MILVUS_DB}")
 logging.info(f"TOPK: {TOPK}")
 logging.info(f"SUPPORTED_EXTENSIONS: {SUPPORTED_EXTENSIONS}")
+logging.info(f"APP_LOG: {APP_LOG}")
+
+# Initialize Logger
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    handlers=[
+                        logging.FileHandler(f"{APP_LOG}/app.log"),  # Log to a file
+                        logging.StreamHandler()          # Log to the console
+                    ])
+logger = logging.getLogger(__name__)
+
+logger.info("Application Initialization Started")
+logger.info(f"Using {os.getcwd()}")
 
 
 # Ensure the directory exists and save the PDF file to the specified path for document use later

@@ -20,6 +20,10 @@ class VlmHandler():
             "model": "llama3.2-vision:11b",
             "messages": [
                 {
+                    "role": "system",
+                    "content": "You are a highly detailed assistant. Provide comprehensive, evidence-based responses that are clear, logical, and well-supported by facts. Do not reference or mention any images directly. Instead, refer to the relevant information found in the provided document. If the document is not relevant to the question, answer it based on your own knowledge"
+                },
+                {
                 "role": "user",
                 "content": query,
                 "images": base64_images

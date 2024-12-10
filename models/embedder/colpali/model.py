@@ -15,16 +15,15 @@ from torch.utils.data import DataLoader
 logging.basicConfig(level=logging.INFO)
 
 class TritonPythonModel:
-    tokenizer: PreTrainedTokenizer
 
     def initialize(self, args: Dict[str, str]) -> None:
         """
-        Initialize the tokenization process
+        Initialize colpali from hugging face 
         :param args: arguments from Triton config file
         """
 
-        self.device = get_torch_device("cpu")
-        self.model_name = "vidore/colpali-v1.2"
+        self.device = get_torch_device('auto')
+        self.model_name = args["model_repository"]
 
         self.model = ColPali.from_pretrained(
             self.model_name,
@@ -50,3 +49,45 @@ class TritonPythonModel:
         
         logging.info(responses)
         return responses
+
+
+
+    # Accepts a list of images (rasterized Pdf pages) returns embeddings for RAG
+    def process_images(self, images):
+        dataloader = DataLoader(
+            dataset=ListDataset[str](images),
+            batch_size=1,
+            shuffle=False,
+            collate_fn=lambda x: self.processor.process_images(x),
+        )
+
+        ds: List[torch.Tensor] = []
+        for batch_doc in tqdm(dataloader):
+            with torch.no_grad():
+                
+                # Convert to appropriate device & forward pass through the model to get embeddings (no grad)
+                batch_doc = {k: v.to(self.model.device) for k, v in batch_doc.items()}
+                embeddings_doc = self.model(**batch_doc)
+
+            #Extract processed images to CPU for further processing
+            ds.extend(list(torch.unbind(embeddings_doc.to('cpu'))))
+        
+        return ds
+    
+
+    # Accepts a single query to be embedded to tensors returns embeddings
+    def process_query(self, query):
+
+        # Process the query using the processor (method accepts lists)
+        processed_query = self.processor.process_queries([query]) 
+        
+        # Convert to appropriate device & forward pass through the model to get embeddings (no grad)
+        processed_query = {k: v.to(self.model.device) for k, v in processed_query.items()}
+        
+        with torch.no_grad():
+            embeddings_query = self.model(**processed_query)
+        
+        # Extract the embeddings into CPU for further processing
+        q = torch.unbind(embeddings_query.to('cpu'))
+    
+        return q

@@ -1,0 +1,31 @@
+name: "colpali"
+max_batch_size: 0
+backend: "python"
+
+input [
+    {
+        name: "image_base64"
+        data_type: TYPE_STRING
+        dims: [-1, -1]
+    },
+    {
+        name: "process_type"
+        data_type: TYPE_STRING
+        dims: [-1]
+    },
+]
+
+output [
+    {
+        name: "embeddinsg"
+        data_type: TYPE_INT64
+        dims: [-1, -1]
+    },
+]
+
+instance_group [
+    {
+      count: 1
+      kind: KIND_GPU
+    }
+]

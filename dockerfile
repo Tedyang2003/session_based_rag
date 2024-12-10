@@ -6,14 +6,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     poppler-utils \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+
 # Set the working directory inside the container
 WORKDIR /rag_app
 
-# Copy application files
-COPY . /rag_app
+COPY requirements.txt ./
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application files
+COPY . /rag_app
 
 # Expose port 5000 (used by your app)
 EXPOSE 5000

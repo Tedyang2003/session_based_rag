@@ -24,15 +24,6 @@ TOPK = int(os.getenv('TOPK'))
 SUPPORTED_EXTENSIONS = os.getenv('SUPPORTED_EXTENSIONS').split(',')
 APP_LOG = os.getenv('APP_LOG')
 
-logging.info(f"VLM_URL: {VLM_URL}")
-logging.info(f"DEVICE_NAME: {DEVICE_NAME}")
-logging.info(f"MODEL_PATH: {MODEL_PATH}")
-logging.info(f"DOCUMENT_STORAGE_PREFIX: {DOCUMENT_STORAGE_PREFIX}")
-logging.info(f"MILVUS_DB: {MILVUS_DB}")
-logging.info(f"TOPK: {TOPK}")
-logging.info(f"SUPPORTED_EXTENSIONS: {SUPPORTED_EXTENSIONS}")
-logging.info(f"APP_LOG: {APP_LOG}")
-
 # Initialize Logger
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -41,6 +32,15 @@ logging.basicConfig(level=logging.INFO,
                         logging.StreamHandler()          # Log to the console
                     ])
 logger = logging.getLogger(__name__)
+
+logger.info(f"VLM_URL: {VLM_URL}")
+logger.info(f"DEVICE_NAME: {DEVICE_NAME}")
+logger.info(f"MODEL_PATH: {MODEL_PATH}")
+logger.info(f"DOCUMENT_STORAGE_PREFIX: {DOCUMENT_STORAGE_PREFIX}")
+logger.info(f"MILVUS_DB: {MILVUS_DB}")
+logger.info(f"TOPK: {TOPK}")
+logger.info(f"SUPPORTED_EXTENSIONS: {SUPPORTED_EXTENSIONS}")
+logger.info(f"APP_LOG: {APP_LOG}")
 
 logger.info("Application Initialization Started")
 logger.info(f"Using {os.getcwd()}")
@@ -82,17 +82,49 @@ def query():
     logger.info(f"Generating Embeddings for {collection_name}")
     query_embedding = colpali.process_query(query)
     query_embedding = query_embedding[0].float().numpy()
-
+    logging.info(f"Query Embedding {query_embedding}")
 
     # Initalize Colbert Retriever for data base similarity search
     logger.info(f"Searching {collection_name} for document page")
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
+    
     results = retriever.search(query_embedding, topk=TOPK)
 
-    
+
+    # Relevance check of adjacent pages to original recommendations
+    images_in_ref = []
+    first_result = results[0]
+    index = 0
+
+    while index < len(results):
+        result = results[index]
+
+        if result[3] not in images_in_ref:
+            images_in_ref.append(result[3])
+
+        next_page_id = result[1] + 1
+        
+        # Check if next_page_id is already in results
+        if not any(res[1] == next_page_id for res in results):
+            next_page = retriever.is_page_relevant(
+                collection_name=collection_name,
+                page_id1=first_result[1],
+                page_id2=next_page_id,
+                doc_id=result[2],
+                thresh=1
+            )
+
+            if next_page:
+                results.append(next_page)
+            
+        index += 1
+
+    logger.info(f"Relevant pages are: {results}")
+
+
     # Request VLM to answer and attatch recommended pages to reply 
-    logger.info(f"VLM is reading  {collection_name}")
-    images_in_ref = [result[2] for result in results]
+    logger.info(f"VLM is reading relevant pages{collection_name}")
+
     message = vlm.generate(query=query, image_paths=images_in_ref)
     message['recommended_pages'] = images_in_ref
     message['text_output'] = message['content']
@@ -172,8 +204,9 @@ def upload():
     for i in range(len(filepaths)):
         data = {
             "colbert_vecs": image_embeddings[i].float().numpy(),
-            "doc_id": i,
-            "filepath": filepaths[i],
+            "page_id": i,
+            'doc_id': file_label,
+            "filepath": filepaths[i]
         }
         retriever.insert(data)
 

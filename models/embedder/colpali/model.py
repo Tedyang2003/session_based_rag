@@ -3,13 +3,15 @@ import numpy as np
 import triton_python_backend_utils as pb_utils
 import logging
 import torch
+import base64
 from typing import List, cast
 from colpali_engine.models import ColPali
 from colpali_engine.models.paligemma.colpali.processing_colpali import ColPaliProcessor
 from colpali_engine.utils.processing_utils import BaseVisualRetrieverProcessor
 from colpali_engine.utils.torch_utils import ListDataset, get_torch_device
 from torch.utils.data import DataLoader
-
+from io import BytesIO
+from PIL import Image
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -44,12 +46,27 @@ class TritonPythonModel:
         responses = []
         # for loop for batch requests (disabled in our case)
         for request in requests:
+            
+            process_type = pb_utils.get_input_tensor_by_name(request, "process_type")
+            embedding_requests = pb_utils.get_input_tensor_by_name(request, "embedding_requests")
 
-            responses.append(inference_response)
+            if process_type == "image":
+                image_list = [self.base64_to_pil(base64_img) for base64_img in embedding_requests]
+                embeddings = self.process_images(image_list)
+
+            elif process_type == "text":
+                embeddings = [self.process_query(query) for query in embedding_requests]
+
+            responses.append(embeddings)
         
         logging.info(responses)
         return responses
 
+    def base64_to_pil(self, base64_img):
+        binary_data = base64.b64decode(base64_img)
+        buffered = BytesIO(binary_data)
+        image = Image.open(buffered)
+        return image
 
 
     # Accepts a list of images (rasterized Pdf pages) returns embeddings for RAG

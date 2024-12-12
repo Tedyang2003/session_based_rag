@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rag-backend-app
-        image: awsy2003tyyt/rag-colpali-backend:latest
+        image: awsy2003tyyt/colpali-rag-backend:latest
         ports:
         - containerPort: 5000
         env:

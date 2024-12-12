@@ -4,6 +4,7 @@ import concurrent.futures
 import numpy as np
 import os
 from flask import jsonify
+import uuid
 
 # Milvus Retriever specialised for Colpali data storage and retrieval
 class MilvusColbertRetriever: 
@@ -52,8 +53,9 @@ class MilvusColbertRetriever:
         directory = os.path.dirname(file_path)
         file_name_with_ext = os.path.basename(file_path)
         file_name, ext = os.path.splitext(file_name_with_ext)
+        unique_id = self.generate_random_id()
 
-        return directory, file_name, ext.lower()
+        return directory, file_name+unique_id, ext.lower()
 
 
     # Create a new collection in Milvus for storing embeddings using fixed schema
@@ -72,8 +74,9 @@ class MilvusColbertRetriever:
             field_name="vector", datatype=DataType.FLOAT_VECTOR, dim=self.dim
         )
         schema.add_field(field_name="seq_id", datatype=DataType.INT16)
-        schema.add_field(field_name="doc_id", datatype=DataType.INT64)
-        schema.add_field(field_name="doc", datatype=DataType.VARCHAR, max_length=65535)
+        schema.add_field(field_name="doc_id", datatype=DataType.VARCHAR, max_length=65535)
+        schema.add_field(field_name="page_id", datatype=DataType.INT64)
+        schema.add_field(field_name="page", datatype=DataType.VARCHAR, max_length=65535)
 
         self.client.create_collection(
             collection_name=self.collection_name, schema=schema
@@ -108,13 +111,13 @@ class MilvusColbertRetriever:
         )
 
 
-    # Create a scalar index for the "doc_id" field to enable fast lookups by document ID.
+    # Create a scalar index for the "page_id" field to enable fast lookups by page ID.
     def create_scalar_index(self):
         self.client.release_collection(collection_name=self.collection_name)
 
         index_params = self.client.prepare_index_params()
         index_params.add_index(
-            field_name="doc_id",
+            field_name="page_id",
             index_name="int32_index",
             index_type="INVERTED",  # or any other index type you want
         )
@@ -127,13 +130,14 @@ class MilvusColbertRetriever:
     #Insert new vector data into the collection for retrieval during search
     def insert(self, data):
 
-        # Insert ColBERT embeddings and metadata for a document into the collection.
+        # Insert ColBERT embeddings and metadata for a page into the collection.
         colbert_vecs = [vec for vec in data["colbert_vecs"]]
         seq_length = len(colbert_vecs)
-        doc_ids = [data["doc_id"] for i in range(seq_length)]
+        page_ids = [data["page_id"] for i in range(seq_length)]
         seq_ids = list(range(seq_length))
-        docs = [""] * seq_length
-        docs[0] = data["filepath"]
+        pages = [""] * seq_length
+        pages[0] = data["filepath"]
+        doc_ids = [data["doc_id"] for i in range(seq_length)]
 
         # Insert the data as multiple vectors (one for each sequence) along with the corresponding metadata.
         list_of_vectors = []
@@ -143,8 +147,9 @@ class MilvusColbertRetriever:
                 {
                     "vector": colbert_vecs[i],
                     "seq_id": seq_ids[i],
-                    "doc_id": doc_ids[i],
-                    "doc": docs[i],
+                    "page_id": page_ids[i],
+                    "page": pages[i],
+                    "doc_id": doc_ids[i]
                 }
             )
 
@@ -167,58 +172,128 @@ class MilvusColbertRetriever:
             self.collection_name,
             data,
             limit=int(50),
-            output_fields=["vector", "seq_id", "doc_id"],
+            output_fields=["vector", "seq_id", "page_id", 'doc_id'],
             search_params=search_params,
         )
 
-        # Get the relevant document ids
-        doc_ids = set()
+        # Get the relevant page ids
+        page_ids = set()
 
         for r_id in range(len(results)):
             for r in range(len(results[r_id])):
-                doc_ids.add(results[r_id][r]["entity"]["doc_id"])
+                page_ids.add((results[r_id][r]["entity"]["page_id"], results[r_id][r]["entity"]["doc_id"]))
 
         scores = []
 
-        # For each page, it will extract all sequences and then stack them and get an overall score for a document  
-        def rerank_single_doc(doc_id, data, client, collection_name):
+        # For each page, it will extract all sequences and then stack them and get an overall score for a page  
+        def rerank_single_page(page_id, doc_id, data, collection_name):
+            
+            page_colbert_vecs = self.retrieve_by_page_id(collection_name=collection_name, page_id=page_id, doc_id=doc_id)
 
-            doc_colbert_vecs = client.query(
-                collection_name=collection_name,
-                filter=f"doc_id in [{doc_id}, {doc_id + 1}]",
-                output_fields=["seq_id", "vector", "doc"],
-                limit=1000,
-            )
-            doc_vecs = np.vstack(
-                [doc_colbert_vecs[i]["vector"] for i in range(len(doc_colbert_vecs))]
+            page_vecs = np.vstack(
+                [page_colbert_vecs[i]["vector"] for i in range(len(page_colbert_vecs))]
             )
 
-            score = np.dot(data, doc_vecs.T).max(1).sum()
-            doc_page = doc_colbert_vecs[0]['doc']
+            score = self.compare_vector_chunks(data, page_vecs, mode='dot')
+            relevant_page = page_colbert_vecs[0]['page']
 
-            return (score, doc_id, doc_page)
+            return (score, page_id, doc_id, relevant_page)
 
-        # Multi threading documennt reranking to identify scores for each document 
+        # Multi threading page reranking to identify scores for each page 
         with concurrent.futures.ThreadPoolExecutor(max_workers=300) as executor:
 
             futures = {}
 
-            for doc_id in doc_ids:
+            for page in page_ids:
                 index = executor.submit(
-                    rerank_single_doc, doc_id, data, self.client, self.collection_name
+                    rerank_single_page, page[0], page[1], data, self.collection_name
                 )
 
-                futures[index] = doc_id
+                futures[index] = page
 
             for future in concurrent.futures.as_completed(futures):
-                score, doc_id, doc_page = future.result()
-                scores.append((score, doc_id, doc_page))
+                score, page_id, doc_id, relevant_page = future.result()
+                scores.append((score, page_id, doc_id, relevant_page))
         
         # Get Highest scores
         scores.sort(key = lambda x: x[0], reverse=True)
 
-        # Return most relevant document pages 
+        # Return most relevant pages 
         if len(scores) >=topk:
             return scores[:topk]
         else: 
             return scores
+
+
+    # Verify the relevance between 2 pages
+    def is_page_relevant(self, collection_name, page_id1, page_id2, doc_id, thresh=1):
+
+        
+        page_1 = self.retrieve_by_page_id(collection_name=collection_name, page_id=page_id1, doc_id=doc_id)
+        page_2 = self.retrieve_by_page_id(collection_name=collection_name, page_id=page_id2, doc_id=doc_id)
+
+        if not page_1 or not page_2:
+            return False 
+
+        page_1_matrix = np.vstack(
+            [page_1[i]["vector"] for i in range(len(page_1))]
+        )
+
+        page_2_matrix = np.vstack(
+            [page_2[i]["vector"] for i in range(len(page_2))]
+        )
+
+        relevance = self.compare_vector_chunks(page_1_matrix, page_2_matrix, mode='cosine')
+
+        if relevance > thresh:
+            return (1, page_id2, doc_id, page_2[0]['page'])
+    
+        return False
+
+    # Calculate the cosine similarity between 2 vector stacks (matrices) 
+    def compare_vector_chunks(self, matrix_1, matrix_2, mode='dot'): 
+        if mode == 'cosine': 
+            # Normalize the vectors 
+            data_normalized = self.normalize(matrix_1) 
+            page_vecs_normalized = self.normalize(matrix_2) 
+            
+            # Calculate cosine similarity 
+            cosine_similarities = np.dot(data_normalized, page_vecs_normalized.T) 
+            
+            # Using max similarity and summing 
+            max_cosine_similarity_scores = cosine_similarities.max(axis=1).sum() 
+            
+            return max_cosine_similarity_scores 
+        
+        elif mode == 'dot': 
+            # Calculate dot product 
+            dot_product_scores = np.dot(matrix_1, matrix_2.T).max(axis=1).sum() 
+            
+            return dot_product_scores 
+        
+        else: 
+            
+            raise ValueError("Mode should be either 'cosine' or 'dot'")
+        
+    def normalize(self, vectors):
+        norm = np.linalg.norm(vectors, axis=1, keepdims=True)
+        return vectors/norm
+    
+    
+    def retrieve_by_page_id(self, collection_name, page_id, doc_id):
+        page_colbert_vecs = self.client.query(
+            collection_name=collection_name,
+            filter=f"page_id == {page_id} && doc_id == '{doc_id}'",
+            output_fields=["seq_id", "vector", "page"],
+            limit=1000,
+        )
+
+        #Check if there even is a subsequent page
+        if len(page_colbert_vecs[0]) == 0:
+            return []
+
+        return page_colbert_vecs
+    
+    @staticmethod
+    def generate_random_id(): 
+        return str(uuid.uuid4())

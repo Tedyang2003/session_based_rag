@@ -4,7 +4,7 @@ backend: "python"
 
 input [
     {
-        name: "image_base64"
+        name: "embedding_requests"
         data_type: TYPE_STRING
         dims: [-1, -1]
     },
@@ -17,7 +17,7 @@ input [
 
 output [
     {
-        name: "embeddinsg"
+        name: "embeddings"
         data_type: TYPE_INT64
         dims: [-1, -1]
     },

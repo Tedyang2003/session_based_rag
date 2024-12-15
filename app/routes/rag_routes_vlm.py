@@ -89,37 +89,37 @@ def query():
     retriever = MilvusColbertRetriever(collection_name=collection_name, milvus_client=client)
     
     results = retriever.search(query_embedding, topk=TOPK)
-
+    images_in_ref = [result[3] for result in results]
 
     # Relevance check of adjacent pages to original recommendations
-    images_in_ref = []
-    first_result = results[0]
-    index = 0
+    # images_in_ref = []
+    # first_result = results[0]
+    # index = 0
 
-    while index < len(results):
-        result = results[index]
+    # while index < len(results):
+    #     result = results[index]
 
-        if result[3] not in images_in_ref:
-            images_in_ref.append(result[3])
+    #     if result[3] not in images_in_ref:
+    #         images_in_ref.append(result[3])
 
-        next_page_id = result[1] + 1
+    #     next_page_id = result[1] + 1
         
-        # Check if next_page_id is already in results
-        if not any(res[1] == next_page_id for res in results):
-            next_page = retriever.is_page_relevant(
-                collection_name=collection_name,
-                page_id1=first_result[1],
-                page_id2=next_page_id,
-                doc_id=result[2],
-                thresh=1
-            )
+    #     # Check if next_page_id is already in results
+    #     if not any(res[1] == next_page_id for res in results):
+    #         next_page = retriever.is_page_relevant(
+    #             collection_name=collection_name,
+    #             page_id1=first_result[1],
+    #             page_id2=next_page_id,
+    #             doc_id=result[2],
+    #             thresh=1
+    #         )
 
-            if next_page:
-                results.append(next_page)
+    #         if next_page:
+    #             results.append(next_page)
             
-        index += 1
+    #     index += 1
 
-    logger.info(f"Relevant pages are: {results}")
+    # logger.info(f"Relevant pages are: {results}")
 
 
     # Request VLM to answer and attatch recommended pages to reply 

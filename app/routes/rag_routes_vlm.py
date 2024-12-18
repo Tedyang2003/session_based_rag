@@ -91,6 +91,8 @@ def query():
     results = retriever.search(query_embedding, topk=TOPK)
     images_in_ref = [result[3] for result in results]
 
+    ref_pages = [str(result[1]+1) for result in results]
+
     # Relevance check of adjacent pages to original recommendations
     # images_in_ref = []
     # first_result = results[0]
@@ -126,8 +128,7 @@ def query():
     logger.info(f"VLM is reading relevant pages{collection_name}")
 
     message = vlm.generate(query=query, image_paths=images_in_ref)
-    message['recommended_pages'] = images_in_ref
-    message['text_output'] = message['content']
+    message['text_output'] = f"{message['content']} \n\nRecommended Reference: Page {', '.join(ref_pages)}"
     del message['content']
     
     logger.info(f"Returining results for {collection_name}")

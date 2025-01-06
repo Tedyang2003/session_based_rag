@@ -21,12 +21,18 @@ class VlmHandler():
             "messages": [
                 {
                     "role": "system",
-                    "content": "You are a highly detailed assistant. Provide comprehensive, evidence-based responses that are clear, logical, and well-supported by facts. Do not reference or mention any images directly. Instead, refer to the relevant information found in the provided document. If the document is not relevant to the question, answer it based on your own knowledge"
+                    "content": """
+                        You are a highly detailed and smart assistant.
+                        Provide comprehensive, responses that are clear, logical, and well-supported by evidence from the given image, do not mention that they are image. 
+                        if the image relates to the question, include the page number in your answer.
+                        if the image does not relate to the question, dont mention any documents at all and answer from your own knowledge.
+                        If no image is provided, just say that your upload is still processing.
+                    """
                 },
                 {
-                "role": "user",
-                "content": query,
-                "images": base64_images
+                    "role": "user",
+                    "content": 'Question: '+ query + "be more elaborate",
+                    "images": base64_images
                 }
             ],
             "stream": False
